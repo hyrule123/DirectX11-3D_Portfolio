@@ -1,9 +1,9 @@
 #include "PCH_Contents.h"
 #include "Script_UIGauge.h"
 
-#include <Engine/Com_Renderer_UIBase.h>
+#include <EngineBase/Engine/Com_Renderer_UIBase.h>
 
-namespace mh
+namespace ehw
 {
 	Script_UIGauge::Script_UIGauge()
 		: Script_UIBase(eUIType::Gauge)

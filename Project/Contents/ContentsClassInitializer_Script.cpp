@@ -8,7 +8,7 @@
 #include "PCH_Contents.h"
 
 #include "ContentsClassInitializer.h"
-#include <Engine/ComMgr.h>
+#include <EngineBase/Engine/ComMgr.h>
 #include "strKey_Script.h"
 
 
@@ -20,9 +20,9 @@
 
 #define CONSTRUCTOR_T(T) ComMgr::AddComConstructor<T>(strKey::Script::##T)
 
-namespace mh
+namespace ehw
 {
-	using namespace mh::define;
+	using namespace ehw::define;
 	void ContentsClassInitializer::InitScript()
 	{
 		CONSTRUCTOR_T(Script_CameraMove);

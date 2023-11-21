@@ -1,19 +1,19 @@
 #include "PCH_Contents.h"
 #include "Scene_Play.h"
 
-#include <Engine/Com_Transform.h>
-#include <Engine/Com_Renderer_Mesh.h>
-#include <Engine/RenderMgr.h>
-#include <Engine/ResourceMgr.h>
-#include <Engine/Texture.h>
-#include <Engine/Com_Camera.h>
-#include <Engine/Com_Renderer_Sprite.h>
-#include <Engine/GridScript.h>
-#include <Engine/Object.h>
-#include <Engine/InputMgr.h>
-#include <Engine/EventMgr.h>
+#include <EngineBase/Engine/Com_Transform.h>
+#include <EngineBase/Engine/Com_Renderer_Mesh.h>
+#include <EngineBase/Engine/RenderMgr.h>
+#include <EngineBase/Engine/ResourceMgr.h>
+#include <EngineBase/Engine/Texture.h>
+#include <EngineBase/Engine/Com_Camera.h>
+#include <EngineBase/Engine/Com_Renderer_Sprite.h>
+#include <EngineBase/Engine/GridScript.h>
+#include <EngineBase/Engine/Object.h>
+#include <EngineBase/Engine/InputMgr.h>
+#include <EngineBase/Engine/EventMgr.h>
 
-namespace mh
+namespace ehw
 {
 
 

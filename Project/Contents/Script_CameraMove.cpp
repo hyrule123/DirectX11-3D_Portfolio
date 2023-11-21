@@ -1,14 +1,14 @@
 #include "PCH_Contents.h"
 #include "Script_CameraMove.h"
 
-#include <Engine/GameObject.h>
-#include <Engine/Com_Camera.h>
-#include <Engine/Com_Transform.h>
-#include <Engine/InputMgr.h>
-#include <Engine/TimeMgr.h>
+#include <EngineBase/Engine/GameObject.h>
+#include <EngineBase/Engine/Com_Camera.h>
+#include <EngineBase/Engine/Com_Transform.h>
+#include <EngineBase/Engine/InputMgr.h>
+#include <EngineBase/Engine/TimeMgr.h>
 
 
-namespace mh
+namespace ehw
 {
 	Script_CameraMove::Script_CameraMove()
 		: mCamera()
@@ -37,13 +37,13 @@ namespace mh
 
 		switch (projType)
 		{
-		case mh::define::eProjectionType::None:
+		case ehw::define::eProjectionType::None:
 			MH_ASSERT(false);
 			break;
-		case mh::define::eProjectionType::Perspective:
+		case ehw::define::eProjectionType::Perspective:
 			Camera3DMove();
 			break;
-		case mh::define::eProjectionType::Orthographic:
+		case ehw::define::eProjectionType::Orthographic:
 			Camera2DMove();
 			break;
 		default:

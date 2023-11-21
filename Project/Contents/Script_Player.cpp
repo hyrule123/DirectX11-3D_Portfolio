@@ -1,14 +1,14 @@
 #include "PCH_Contents.h"
 #include "Script_Player.h"
 
-#include <Engine/Animation3D.h>
-#include <Engine/Com_Animator3D.h>
-#include <Engine/GameObject.h>
-#include <Engine/InputMgr.h>
-#include <Engine/MeshData.h>
-#include <Engine/ResourceMgr.h>
+#include <EngineBase/Engine/Animation3D.h>
+#include <EngineBase/Engine/Com_Animator3D.h>
+#include <EngineBase/Engine/GameObject.h>
+#include <EngineBase/Engine/InputMgr.h>
+#include <EngineBase/Engine/MeshData.h>
+#include <EngineBase/Engine/ResourceMgr.h>
 
-namespace mh
+namespace ehw
 {
 	void Script_Player::RequireComponent()
 	{

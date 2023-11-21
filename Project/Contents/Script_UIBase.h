@@ -1,13 +1,13 @@
 #pragma once
-#include <Engine/IScript.h>
-#include <Engine/define_GPU.h>
+#include <EngineBase/Engine/IScript.h>
+#include <EngineBase/Engine/define_GPU.h>
 
 //HLSL 헤더 파일을 그대로 include
 #include <Shader/UIBasic.hlsli>
 
 
 
-namespace mh
+namespace ehw
 {
 	enum class eUIType
 	{

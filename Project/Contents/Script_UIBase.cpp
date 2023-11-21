@@ -3,12 +3,12 @@
 #include "PCH_Contents.h"
 #include "Script_UIBase.h"
 
-#include <Engine/GameObject.h>
-#include <Engine/Com_Renderer_UIBase.h>
-#include <Engine/ResourceMgr.h>
-#include <Engine/define_Component.h>
+#include <EngineBase/Engine/GameObject.h>
+#include <EngineBase/Engine/Com_Renderer_UIBase.h>
+#include <EngineBase/Engine/ResourceMgr.h>
+#include <EngineBase/Engine/define_Component.h>
 
-namespace mh
+namespace ehw
 {
 	Script_UIBase::Script_UIBase(eUIType _type)
 		: mUIMode(_type)
