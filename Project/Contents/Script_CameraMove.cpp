@@ -38,7 +38,7 @@ namespace ehw
 		switch (projType)
 		{
 		case ehw::define::eProjectionType::None:
-			MH_ASSERT(false);
+			ASSERT(false, "미구현");
 			break;
 		case ehw::define::eProjectionType::Perspective:
 			Camera3DMove();
@@ -47,7 +47,7 @@ namespace ehw
 			Camera2DMove();
 			break;
 		default:
-			MH_ASSERT(false);
+			ASSERT(false, "미구현");
 			break;
 		}
 	}

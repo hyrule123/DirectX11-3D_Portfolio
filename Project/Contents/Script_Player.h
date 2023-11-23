@@ -10,7 +10,7 @@ namespace ehw
         Script_Player() {};
         virtual ~Script_Player() {};
 
-        virtual void RequireComponent() override;
+        virtual void OnCreate() override;
         virtual void Init() override;
         virtual void Update() override;
 

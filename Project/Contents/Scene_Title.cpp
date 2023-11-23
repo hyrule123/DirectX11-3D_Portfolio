@@ -12,8 +12,6 @@
 #include <EngineBase/Engine/Object.h>
 #include <EngineBase/Engine/InputMgr.h>
 #include <EngineBase/Engine/ICollider2D.h>
-#include <EngineBase/Engine/Player.h>
-#include <EngineBase/Engine/Monster.h>
 #include <EngineBase/Engine/CollisionMgr.h>
 #include <EngineBase/Engine/Com_Animator2D.h>
 #include <EngineBase/Engine/Com_Light3D.h>

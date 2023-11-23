@@ -67,14 +67,14 @@ namespace ehw
 	}
 	void Script_UIBase::SetCustomMaterial(std::shared_ptr<Material> _material)
 	{
-		MH_ASSERT(mUIComponent);
+		ASSERT(mUIComponent, "UI 컴포넌트가 없습니다.");
 		mUIComponent->SetMaterial(_material, 0u);
 		mUIComponent->SetMaterialMode(0u, eMaterialMode::Dynamic);
 	}
 
 	void Script_UIBase::SetTexture(define::eTextureSlot _slot, std::shared_ptr<Texture> _tex)
 	{
-		MH_ASSERT(mUIComponent);
+		ASSERT(mUIComponent, "UI 컴포넌트가 없습니다.");
 		mUIComponent->GetCurrentMaterial(0u)->SetTexture(_slot, _tex);
 	}
 }

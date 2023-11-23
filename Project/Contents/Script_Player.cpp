@@ -10,7 +10,7 @@
 
 namespace ehw
 {
-	void Script_Player::RequireComponent()
+	void Script_Player::OnCreate()
 	{
 		std::shared_ptr<MeshData> meshdata = ResourceMgr::Load<MeshData>("Player_Default");
 		if (nullptr == meshdata || false == meshdata->Instantiate(GetOwner()))
