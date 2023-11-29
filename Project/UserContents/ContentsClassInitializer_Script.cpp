@@ -12,6 +12,8 @@
 #include "strKey_Script.h"
 
 
+#include "Script_CameraMove.h"
+#include "Script_Player.h"
 
 #define CONSTRUCTOR_T(T) ComMgr::AddComConstructor<T>(strKey::Script::##T)
 
@@ -20,5 +22,7 @@ namespace ehw
 	using namespace ehw::define;
 	void ContentsClassInitializer::InitScript()
 	{
+		CONSTRUCTOR_T(Script_CameraMove);
+		CONSTRUCTOR_T(Script_Player);
 	}
 }

@@ -20,8 +20,9 @@
 #include <EngineBase/Engine/Prefab.h>
 #include <EngineBase/Engine/Com_Renderer_UIBase.h>
 
-#include "strKey_Script.h"
 
+#include "strKey_Script.h"
+#include "Script_Player.h"
 
 #include <EngineBase/Engine/EventMgr.h>
 
@@ -35,8 +36,6 @@ namespace ehw
 	}
 	void Scene_Title::Init()
 	{
-		IScene::Init();
-
 		{
 			// Main Com_Camera Game Object
 			GameObject* cameraObj = EventMgr::SpawnGameObject(eLayerType::Com_Camera);
@@ -48,8 +47,7 @@ namespace ehw
 			Com_Camera* cameraComp = cameraObj->AddComponent<Com_Camera>();
 			cameraComp->SetProjectionType(define::eProjectionType::Perspective);
 
-			//cameraObj->AddComponent(strKey::Script::Script_CameraMove);
-			//cameraObj->AddComponent(strKey::Script::Script_UIBase);
+			cameraObj->AddComponent(strKey::Script::Script_CameraMove);
 
 
 			RenderMgr::SetMainCamera(cameraComp);
@@ -87,36 +85,19 @@ namespace ehw
 			light3d->SetRadius(500.f);
 
 			light3d->SetDiffuse(float4(0.7f, 0.7f, 0.7f, 1.f));
-			
+
 			light3d->SetAmbient(float4(0.3f, 0.3f, 0.3f, 1.f));
 		}
 
 
 		{
 			GameObject* player = EventMgr::SpawnGameObject(eLayerType::Player);
-			//player->AddComponent<Script_Player>();
+			player->AddComponent<Script_Player>();
 
-			
+
 			//GameObject* modeling = meshdata->Instantiate(eLayerType::Player);
 		}
 	}
-	void Scene_Title::Update()
-	{
-		IScene::Update();
-	}
-	void Scene_Title::FixedUpdate()
-	{
-		IScene::FixedUpdate();
-	}
-	void Scene_Title::Render()
-	{
-		IScene::Render();
-	}
-	void Scene_Title::OnEnter()
-	{
 
-	}
-	void Scene_Title::OnExit()
-	{
-	}
+
 }

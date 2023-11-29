@@ -207,6 +207,8 @@ start CodeGenerator_$(Platform)_$(Configuration).exe Script Scene Shader</Comman
     <ClInclude Include="ContentsClassInitializer.h" />
     <ClInclude Include="PCH_UserContents.h" />
     <ClInclude Include="Scene_Title.h" />
+    <ClInclude Include="Script_CameraMove.h" />
+    <ClInclude Include="Script_Player.h" />
     <ClInclude Include="strKey_Scene.h" />
     <ClInclude Include="strKey_Script.h" />
     <ClInclude Include="strKey_Shader.h" />
@@ -222,6 +224,8 @@ start CodeGenerator_$(Platform)_$(Configuration).exe Script Scene Shader</Comman
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Scene_Title.cpp" />
+    <ClCompile Include="Script_CameraMove.cpp" />
+    <ClCompile Include="Script_Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ContentsClassInitializer_Scene.txt" />
