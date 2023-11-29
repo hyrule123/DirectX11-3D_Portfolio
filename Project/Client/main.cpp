@@ -1,7 +1,7 @@
 #include "PCH_Client.h"
 
 #include <EngineBase/Engine/GameMainWindow.h>
-#include <Contents/ContentsClassInitializer.h>
+#include <UserContents/ContentsClassInitializer.h>
 
 inline void DebugCheck(long _block);
 BOOL APIENTRY wWinMain(_In_ HINSTANCE hInstance,

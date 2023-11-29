@@ -4,6 +4,9 @@
     <Filter Include="Default Headers">
       <UniqueIdentifier>{3cba218a-ac2e-4522-9876-90dcae8fe9ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sample">
+      <UniqueIdentifier>{860083db-9b9f-4ad9-9f4f-c0c9db955d66}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="SH_Common.hlsli">
@@ -39,5 +42,22 @@
     <None Include="SH_UserInterFace.hlsli">
       <Filter>Default Headers</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="VS_Sample.hlsl">
+      <Filter>Sample</Filter>
+    </FxCompile>
+    <FxCompile Include="HS_Sample.hlsl">
+      <Filter>Sample</Filter>
+    </FxCompile>
+    <FxCompile Include="DS_Sample.hlsl">
+      <Filter>Sample</Filter>
+    </FxCompile>
+    <FxCompile Include="GS_Sample.hlsl">
+      <Filter>Sample</Filter>
+    </FxCompile>
+    <FxCompile Include="PS_Sample.hlsl">
+      <Filter>Sample</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

@@ -17,15 +17,9 @@ namespace strKey_Shader
 {
 	namespace Graphics
 	{
-		STRKEY UICustomGauge = "UICustomGauge.json";
-		STRKEY UIBasic = "UIBasic.json";
-		STRKEY UIGauge = "UIGauge.json";
-		STRKEY TestCH = "TestCH.json";
-		STRKEY TestJH = "TestJH.json";
-		STRKEY UIButton = "UIButton.json";
+		STRKEY Sample = "Sample.json";
 	};
 	namespace Compute
 	{
-		STRKEY CS_TestSB = "CS_TestSB.cso";
 	};
 }

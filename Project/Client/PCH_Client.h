@@ -1,14 +1,8 @@
-
 #ifndef PCH_CLIENT
 #define PCH_CLIENT
 
-#include <Contents/PCH_Contents.h>
+#include <UserContents/PCH_UserContents.h>
 
-#ifdef _DEBUG
-#pragma comment(lib, "Contents/lib/Debug/Contents.lib")
-#else 
-#pragma comment(lib, "Contents/lib/Release/Contents.lib")
-#endif
 
 #include "targetver.h"
 #define WIN32_LEAN_AND_MEAN             // 거의 사용되지 않는 내용을 Windows 헤더에서 제외합니다.
@@ -21,5 +15,16 @@
 #include <tchar.h>
 #include "Resource.h"
 
+#ifdef _WIN64
 
-#endif
+#ifdef _DEBUG
+#pragma comment(lib, "UserContents/x64/Debug/UserContents.lib")
+#else _DEBUG
+#pragma comment(lib, "UserContents/x64/Release/UserContents.lib")
+#endif _DEBUG
+
+#else _WIN64
+#error "x64만 지원합니다"
+#endif _WIN64
+
+#endif PCH_CLIENT

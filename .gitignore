@@ -31,6 +31,7 @@ bld/
 [Oo]bj/
 [Oo]ut/
 [Oo]utput/
+
 [Ll]og/
 [Ll]ogs/
 
@@ -387,8 +388,6 @@ External/
 # Exclude Resources
 Res/
 
-
-
 # Exclude Shader header
 CompiledShaderHeader/
 
@@ -396,3 +395,6 @@ CompiledShaderHeader/
 *.fbx
 *.blend
 FBX/
+
+# text file
+*.txt

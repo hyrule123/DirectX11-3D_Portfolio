@@ -1,4 +1,4 @@
-#include "PCH_Contents.h"
+#include "PCH_UserContents.h"
 #include "Scene_Title.h"
 
 #include <EngineBase/Engine/ResourceMgr.h>
@@ -19,10 +19,6 @@
 #include <EngineBase/Engine/Com_Renderer_ParticleSystem.h>
 #include <EngineBase/Engine/Prefab.h>
 #include <EngineBase/Engine/Com_Renderer_UIBase.h>
-
-#include <Contents/Script_UIBase.h>
-#include <Contents/Script_UIGauge.h>
-#include <Contents/Script_Player.h>
 
 #include "strKey_Script.h"
 
@@ -52,8 +48,8 @@ namespace ehw
 			Com_Camera* cameraComp = cameraObj->AddComponent<Com_Camera>();
 			cameraComp->SetProjectionType(define::eProjectionType::Perspective);
 
-			cameraObj->AddComponent(strKey::Script::Script_CameraMove);
-			cameraObj->AddComponent(strKey::Script::Script_UIBase);
+			//cameraObj->AddComponent(strKey::Script::Script_CameraMove);
+			//cameraObj->AddComponent(strKey::Script::Script_UIBase);
 
 
 			RenderMgr::SetMainCamera(cameraComp);
@@ -98,7 +94,7 @@ namespace ehw
 
 		{
 			GameObject* player = EventMgr::SpawnGameObject(eLayerType::Player);
-			player->AddComponent<Script_Player>();
+			//player->AddComponent<Script_Player>();
 
 			
 			//GameObject* modeling = meshdata->Instantiate(eLayerType::Player);
@@ -106,11 +102,6 @@ namespace ehw
 	}
 	void Scene_Title::Update()
 	{
-		if (InputMgr::GetKeyDown(eKeyCode::N))
-		{
-			//SceneMgr::LoadScene(eSceneType::Play);
-		}
-
 		IScene::Update();
 	}
 	void Scene_Title::FixedUpdate()

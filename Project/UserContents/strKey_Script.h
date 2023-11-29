@@ -13,9 +13,6 @@
 
 
 
-namespace ehw::define::strKey::Scene
+namespace ehw::define::strKey::Script
 {
-	STRKEY Scene_Play = "Scene_Play";
-	STRKEY Scene_TestBehaviourTree = "Scene_TestBehaviourTree";
-	STRKEY Scene_Title = "Scene_Title";
 }

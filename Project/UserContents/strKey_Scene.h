@@ -13,11 +13,7 @@
 
 
 
-namespace ehw::define::strKey::Script
+namespace ehw::define::strKey::Scene
 {
-	STRKEY Script_CameraMove = "Script_CameraMove";
-	STRKEY Script_Player = "Script_Player";
-	STRKEY Script_UIBase = "Script_UIBase";
-	STRKEY Script_UIButton = "Script_UIButton";
-	STRKEY Script_UIGauge = "Script_UIGauge";
+	STRKEY Scene_Title = "Scene_Title";
 }
