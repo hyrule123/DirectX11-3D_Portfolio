@@ -1,6 +1,7 @@
 #include "PCH_UserContents.h"
 #include "Script_Player.h"
 
+
 #include <EngineBase/Engine/Animation3D.h>
 #include <EngineBase/Engine/Com_Animator3D.h>
 #include <EngineBase/Engine/GameObject.h>
@@ -8,12 +9,14 @@
 #include <EngineBase/Engine/MeshData.h>
 #include <EngineBase/Engine/ResourceMgr.h>
 
+#include <EngineBase/Engine/Com_Transform.h>
+
 namespace ehw
 {
-	void Script_Player::OnCreate()
+	void Script_Player::Init()
 	{
 		std::shared_ptr<MeshData> meshdata = ResourceMgr::Load<MeshData>("Player_Default");
-		if (nullptr == meshdata || false == meshdata->Instantiate(GetOwner()))
+		if (nullptr == meshdata || eResultFail(meshdata->Instantiate(GetOwner())))
 		{
 			ERROR_MESSAGE_W(L"메쉬 데이터 로드 실패");
 		}
@@ -27,7 +30,7 @@ namespace ehw
 		animator->AddEvent("Evade", 0, std::bind(&Script_Player::TestCallback, this));
 	}
 
-	void Script_Player::Init()
+	void Script_Player::Awake()
 	{
 		Com_Animator3D* animator = GetOwner()->GetComponent<Com_Animator3D>();
 		if (animator)

@@ -1,11 +1,11 @@
 #pragma once
-#include <EngineBase/Engine/IScript.h>
+#include <EngineBase/Engine/iScript.h>
 
 namespace ehw
 {
 	class Com_Camera;
 	class Script_CameraMove :
-		public IScript
+		public iScript
 	{
 	public:
 		Script_CameraMove();

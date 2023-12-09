@@ -24,7 +24,7 @@
 #include "strKey_Script.h"
 #include "Script_Player.h"
 
-#include <EngineBase/Engine/EventMgr.h>
+#include <iostream>
 
 namespace ehw
 {
@@ -34,18 +34,18 @@ namespace ehw
 	Scene_Title::~Scene_Title()
 	{
 	}
-	void Scene_Title::Init()
+	void Scene_Title::OnEnter()
 	{
 		{
 			// Main Com_Camera Game Object
-			GameObject* cameraObj = EventMgr::SpawnGameObject(eLayerType::Com_Camera);
+			GameObject* cameraObj = NewGameObject(eLayerType::Com_Camera);
 			cameraObj->SetName("MainCamera");
 
 			Com_Transform* tr = cameraObj->AddComponent<Com_Transform>();
 			tr->SetRelativePos(float3(0.0f, 0.0f, -20.0f));
 
 			Com_Camera* cameraComp = cameraObj->AddComponent<Com_Camera>();
-			cameraComp->SetProjectionType(define::eProjectionType::Perspective);
+			cameraComp->SetProjectionType(eProjectionType::Perspective);
 
 			cameraObj->AddComponent(strKey::Script::Script_CameraMove);
 
@@ -54,7 +54,7 @@ namespace ehw
 		}
 
 		{
-			GameObject* dirLight = EventMgr::SpawnGameObject(eLayerType::Player);
+			GameObject* dirLight = NewGameObject(eLayerType::Player);
 			dirLight->AddComponent<Com_Transform>();
 
 			Com_Light3D* light3d = dirLight->AddComponent<Com_Light3D>();
@@ -64,7 +64,7 @@ namespace ehw
 		}
 
 		{
-			GameObject* dirLight = EventMgr::SpawnGameObject(eLayerType::Player);
+			GameObject* dirLight = NewGameObject(eLayerType::Player);
 			dirLight->AddComponent<Com_Transform>();
 			dirLight->SetName("Point1000");
 
@@ -76,7 +76,7 @@ namespace ehw
 		}
 
 		{
-			GameObject* dirLight = EventMgr::SpawnGameObject(eLayerType::Player);
+			GameObject* dirLight = NewGameObject(eLayerType::Player);
 			dirLight->AddComponent<Com_Transform>();
 			dirLight->SetName("Point500");
 
@@ -91,7 +91,7 @@ namespace ehw
 
 
 		{
-			GameObject* player = EventMgr::SpawnGameObject(eLayerType::Player);
+			GameObject* player = NewGameObject(eLayerType::Player);
 			player->AddComponent<Script_Player>();
 
 

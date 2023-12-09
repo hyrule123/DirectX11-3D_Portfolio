@@ -13,7 +13,7 @@
 
 
 
-namespace ehw::define::strKey::Scene
+namespace ehw::strKey::Scene
 {
 	STRKEY Scene_Title = "Scene_Title";
 }

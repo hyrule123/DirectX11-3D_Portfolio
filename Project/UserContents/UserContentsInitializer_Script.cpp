@@ -7,7 +7,7 @@
 
 #include "PCH_UserContents.h"
 
-#include "ContentsClassInitializer.h"
+#include "UserContentsInitializer.h"
 #include <EngineBase/Engine/ComMgr.h>
 #include "strKey_Script.h"
 
@@ -19,7 +19,8 @@
 
 namespace ehw
 {
-	void ContentsClassInitializer::InitScript()
+
+	void UserContentsInitializer::InitScript()
 	{
 		CONSTRUCTOR_T(Script_CameraMove);
 		CONSTRUCTOR_T(Script_Player);

@@ -33,17 +33,17 @@ namespace ehw
 
 	void Script_CameraMove::Update()
 	{
-		define::eProjectionType projType = mCamera->GetProjectionType();
+		eProjectionType projType = mCamera->GetProjectionType();
 
 		switch (projType)
 		{
-		case ehw::define::eProjectionType::None:
+		case ehw::eProjectionType::None:
 			ASSERT(false, "미구현");
 			break;
-		case ehw::define::eProjectionType::Perspective:
+		case ehw::eProjectionType::Perspective:
 			Camera3DMove();
 			break;
-		case ehw::define::eProjectionType::Orthographic:
+		case ehw::eProjectionType::Orthographic:
 			Camera2DMove();
 			break;
 		default:

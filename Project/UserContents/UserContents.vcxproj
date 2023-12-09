@@ -112,7 +112,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>PCH_Contents.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>PCH_UserContents.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
@@ -123,7 +123,7 @@
     </Link>
     <PreBuildEvent>
       <Command>cd $(SolutionDir)
-start CodeGenerator_$(Platform)_$(Configuration).exe Script Scene</Command>
+start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene Shader</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -137,7 +137,7 @@ start CodeGenerator_$(Platform)_$(Configuration).exe Script Scene</Command>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>PCH_Contents.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>PCH_UserContents.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
@@ -150,7 +150,7 @@ start CodeGenerator_$(Platform)_$(Configuration).exe Script Scene</Command>
     </Link>
     <PreBuildEvent>
       <Command>cd $(SolutionDir)
-start CodeGenerator_$(Platform)_$(Configuration).exe Script Scene</Command>
+start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene Shader</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -173,7 +173,7 @@ start CodeGenerator_$(Platform)_$(Configuration).exe Script Scene</Command>
     </Link>
     <PreBuildEvent>
       <Command>cd $(SolutionDir)
-start CodeGenerator_$(Platform)_$(Configuration).exe Script Scene Shader</Command>
+start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene Shader</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -200,7 +200,7 @@ start CodeGenerator_$(Platform)_$(Configuration).exe Script Scene Shader</Comman
     </Link>
     <PreBuildEvent>
       <Command>cd $(SolutionDir)
-start CodeGenerator_$(Platform)_$(Configuration).exe Script Scene Shader</Command>
+start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene Shader</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

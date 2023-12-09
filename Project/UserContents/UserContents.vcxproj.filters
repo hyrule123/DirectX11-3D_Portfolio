@@ -5,11 +5,7 @@
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
-    <ClCompile Include="PCH_Contents.cpp" />
-    <ClCompile Include="Scene_Title.cpp" />
     <ClCompile Include="ContentsClassInitializer.cpp" />
-    <ClCompile Include="ContentsClassInitializer_Scene.cpp" />
-    <ClCompile Include="ContentsClassInitializer_Script.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="Scene_Title.cpp" />
     <ClCompile Include="ContentsClassInitializer.cpp" />
@@ -76,9 +72,7 @@
     <ClCompile Include="ContentsClassInitializer_Scene.cpp" />
     <ClCompile Include="ContentsClassInitializer_Script.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
-    <ClCompile Include="Scene_Play.cpp" />
     <ClCompile Include="Scene_Title.cpp" />
-    <ClCompile Include="Script_CameraMove.cpp" />
     <ClCompile Include="ContentsClassInitializer_Scene.cpp" />
     <ClCompile Include="ContentsClassInitializer_Script.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
@@ -90,12 +84,16 @@
     <ClCompile Include="ContentsClassInitializer_Scene.cpp" />
     <ClCompile Include="ContentsClassInitializer_Script.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
+    <ClCompile Include="Scene_Title.cpp" />
+    <ClCompile Include="ContentsClassInitializer_Scene.cpp" />
+    <ClCompile Include="ContentsClassInitializer_Script.cpp" />
     <ClCompile Include="Scene_Title.cpp" />
     <ClCompile Include="ContentsClassInitializer_Scene.cpp" />
     <ClCompile Include="ContentsClassInitializer_Script.cpp" />
     <ClCompile Include="PCH_UserContents.cpp" />
     <ClCompile Include="Scene_Title.cpp" />
-    <ClCompile Include="*.cpp" />
+    <ClCompile Include="Script_CameraMove.cpp" />
+    <ClCompile Include="Script_Player.cpp" />
     <ClCompile Include="*.cpp" />
     <ClCompile Include="*.cpp">
       <Filter>Init</Filter>
@@ -181,6 +179,19 @@
       <Filter>Script</Filter>
     </ClCompile>
     <ClCompile Include="ContentsClassInitializer.cpp" />
+    <ClCompile Include="ContentsClassInitializer_Script.cpp">
+      <Filter>Auto Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="ContentsClassInitializer_Scene.cpp">
+      <Filter>Auto Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="PCH_UserContents.cpp" />
+    <ClCompile Include="Scene_Title.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script_CameraMove.cpp">
+      <Filter>Script</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="strKey_Scene.h">
@@ -192,9 +203,6 @@
     <ClInclude Include="strKey_Shader.h">
       <Filter>Auto Generated</Filter>
     </ClInclude>
-    <ClInclude Include="PCH_UserContents.h">
-      <Filter>PCH</Filter>
-    </ClInclude>
     <ClInclude Include="Scene_Title.h">
       <Filter>Scene</Filter>
     </ClInclude>
@@ -205,6 +213,7 @@
       <Filter>Script</Filter>
     </ClInclude>
     <ClInclude Include="ContentsClassInitializer.h" />
+    <ClInclude Include="PCH_UserContents.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Auto Generated">
