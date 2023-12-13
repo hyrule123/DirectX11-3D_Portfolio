@@ -5,16 +5,16 @@
 //=========================================================
 
 
-#include "PCH_UserContents.h"
+
 
 #include "UserContentsInitializer.h"
-#include <EngineBase/Engine/SceneMgr.h>
+#include <Engine/Manager/SceneManager.h>
 #include "strKey_Scene.h"
 
 
-#include "Scene_Title.h"
+#include "Scene\Scene_Title.h"
 
-#define CONSTRUCTOR_T(T) SceneMgr::AddSceneConstructor<T>(strKey::Scene::##T)
+#define CONSTRUCTOR_T(T) SceneManager::AddSceneConstructor<T>(strKey::scene::##T)
 
 namespace ehw
 {

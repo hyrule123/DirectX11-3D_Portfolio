@@ -5,24 +5,24 @@
 //=========================================================
 
 
-#include "PCH_UserContents.h"
+
 
 #include "UserContentsInitializer.h"
-#include <EngineBase/Engine/ComMgr.h>
+#include <Engine/Manager/ComponentManager.h>
 #include "strKey_Script.h"
 
 
-#include "Script_CameraMove.h"
-#include "Script_Player.h"
+#include "Script\Script_Player.h"
+#include "Script\Script_CameraMove.h"
 
-#define CONSTRUCTOR_T(T) ComMgr::AddComConstructor<T>(strKey::Script::##T)
+#define CONSTRUCTOR_T(T) ComponentManager::AddComponentConstructor<T>(strKey::script::##T)
 
 namespace ehw
 {
 
 	void UserContentsInitializer::InitScript()
 	{
-		CONSTRUCTOR_T(Script_CameraMove);
 		CONSTRUCTOR_T(Script_Player);
+		CONSTRUCTOR_T(Script_CameraMove);
 	}
 }

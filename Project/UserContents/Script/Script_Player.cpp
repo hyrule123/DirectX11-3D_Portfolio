@@ -1,21 +1,21 @@
-#include "PCH_UserContents.h"
 #include "Script_Player.h"
 
 
-#include <EngineBase/Engine/Animation3D.h>
-#include <EngineBase/Engine/Com_Animator3D.h>
-#include <EngineBase/Engine/GameObject.h>
-#include <EngineBase/Engine/InputMgr.h>
-#include <EngineBase/Engine/MeshData.h>
-#include <EngineBase/Engine/ResourceMgr.h>
+#include <Engine/Resource/Animation/Animation3D.h>
+#include <Engine/Game/Component/Animator/Com_Animator3D.h>
+#include <Engine/Game/GameObject.h>
+#include <Engine/Manager/InputManager.h>
+#include <Engine/Resource/Modeling/MeshData.h>
+#include <Engine/Manager/ResourceManager.h>
 
-#include <EngineBase/Engine/Com_Transform.h>
+
+#include <Engine/Game/Component/Transform/Com_Transform.h>
 
 namespace ehw
 {
 	void Script_Player::Init()
 	{
-		std::shared_ptr<MeshData> meshdata = ResourceMgr::Load<MeshData>("Player_Default");
+		std::shared_ptr<MeshData> meshdata = ResourceManager::Load<MeshData>("Player_Default");
 		if (nullptr == meshdata || eResultFail(meshdata->Instantiate(GetOwner())))
 		{
 			ERROR_MESSAGE_W(L"메쉬 데이터 로드 실패");
@@ -41,7 +41,7 @@ namespace ehw
 
 	void Script_Player::Update()
 	{
-		if (InputMgr::GetKeyDown(eKeyCode::P))
+		if (InputManager::GetKeyDown(eKeyCode::P))
 		{
 			Com_Animator3D* animator = GetOwner()->GetComponent<Com_Animator3D>();
 			if (animator)
@@ -50,7 +50,7 @@ namespace ehw
 			}
 		}
 
-		if (InputMgr::GetKeyDown(eKeyCode::E))
+		if (InputManager::GetKeyDown(eKeyCode::E))
 		{
 		}
 	}

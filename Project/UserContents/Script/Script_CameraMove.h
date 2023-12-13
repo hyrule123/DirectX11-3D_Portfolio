@@ -1,5 +1,5 @@
 #pragma once
-#include <EngineBase/Engine/iScript.h>
+#include <Engine/Game/Component/Script/iScript.h>
 
 namespace ehw
 {
@@ -12,6 +12,7 @@ namespace ehw
 
 		Script_CameraMove(const Script_CameraMove& _other);
 		CLONE(Script_CameraMove);
+
 
 		virtual ~Script_CameraMove();
 

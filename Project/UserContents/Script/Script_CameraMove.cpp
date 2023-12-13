@@ -1,11 +1,11 @@
-#include "PCH_UserContents.h"
+
 #include "Script_CameraMove.h"
 
-#include <EngineBase/Engine/GameObject.h>
-#include <EngineBase/Engine/Com_Camera.h>
-#include <EngineBase/Engine/Com_Transform.h>
-#include <EngineBase/Engine/InputMgr.h>
-#include <EngineBase/Engine/TimeMgr.h>
+#include <Engine/Game/GameObject.h>
+#include <Engine/Game/Component/Camera/Com_Camera.h>
+#include <Engine/Game/Component/Transform/Com_Transform.h>
+#include <Engine/Manager/InputManager.h>
+#include <Engine/Manager/TimeManager.h>
 
 
 namespace ehw
@@ -61,43 +61,43 @@ namespace ehw
 		float3 vPos = tf->GetRelativePos();
 
 		float fSpeed = mCamSpeed;
-		if (InputMgr::GetKey(eKeyCode::LSHIFT))
+		if (InputManager::GetKeyPress(eKeyCode::LSHIFT))
 		{
 			fSpeed *= 5.f;
 		}
 
-		if (InputMgr::GetKey(eKeyCode::W))
+		if (InputManager::GetKeyPress(eKeyCode::W))
 		{
-			vPos.y += TimeMgr::DeltaTime() * fSpeed;
+			vPos.y += TimeManager::DeltaTime() * fSpeed;
 		}
 
-		if (InputMgr::GetKey(eKeyCode::S))
+		if (InputManager::GetKeyPress(eKeyCode::S))
 		{
-			vPos.y -= TimeMgr::DeltaTime() * fSpeed;
+			vPos.y -= TimeManager::DeltaTime() * fSpeed;
 		}
 
-		if (InputMgr::GetKey(eKeyCode::A))
+		if (InputManager::GetKeyPress(eKeyCode::A))
 		{
-			vPos.x -= TimeMgr::DeltaTime() * fSpeed;
+			vPos.x -= TimeManager::DeltaTime() * fSpeed;
 		}
 
-		if (InputMgr::GetKey(eKeyCode::D))
+		if (InputManager::GetKeyPress(eKeyCode::D))
 		{
-			vPos.x += TimeMgr::DeltaTime() * fSpeed;
+			vPos.x += TimeManager::DeltaTime() * fSpeed;
 		}
 
 
-		if (InputMgr::GetKey(eKeyCode::N_1))
+		if (InputManager::GetKeyPress(eKeyCode::N_1))
 		{
 			float fScale = mCamera->GetScale();
-			fScale += TimeMgr::DeltaTime() * 1.f;
+			fScale += TimeManager::DeltaTime() * 1.f;
 			mCamera->SetScale(fScale);
 		}
 
-		if (InputMgr::GetKey(eKeyCode::N_2))
+		if (InputManager::GetKeyPress(eKeyCode::N_2))
 		{
 			float fScale = mCamera->GetScale();
-			fScale -= TimeMgr::DeltaTime() * 1.f;
+			fScale -= TimeManager::DeltaTime() * 1.f;
 			mCamera->SetScale(fScale);
 		}
 
@@ -117,36 +117,36 @@ namespace ehw
 
 		float fSpeed = mCamSpeed;
 
-		if (InputMgr::GetKey(eKeyCode::LSHIFT))
+		if (InputManager::GetKeyPress(eKeyCode::LSHIFT))
 			fSpeed *= 5.f;
 
-		if (InputMgr::GetKey(eKeyCode::W))
+		if (InputManager::GetKeyPress(eKeyCode::W))
 		{
-			vPos += TimeMgr::DeltaTime() * vFront * fSpeed;
+			vPos += TimeManager::DeltaTime() * vFront * fSpeed;
 		}
 
-		if (InputMgr::GetKey(eKeyCode::S))
+		if (InputManager::GetKeyPress(eKeyCode::S))
 		{
-			vPos -= TimeMgr::DeltaTime() * vFront * fSpeed;
+			vPos -= TimeManager::DeltaTime() * vFront * fSpeed;
 		}
 
-		if (InputMgr::GetKey(eKeyCode::A))
+		if (InputManager::GetKeyPress(eKeyCode::A))
 		{
-			vPos -= TimeMgr::DeltaTime() * vRight * fSpeed;
+			vPos -= TimeManager::DeltaTime() * vRight * fSpeed;
 		}
 
-		if (InputMgr::GetKey(eKeyCode::D))
+		if (InputManager::GetKeyPress(eKeyCode::D))
 		{
-			vPos += TimeMgr::DeltaTime() * vRight * fSpeed;
+			vPos += TimeManager::DeltaTime() * vRight * fSpeed;
 		}
 
 
 
-		if (InputMgr::GetKey(eKeyCode::RBTN))
+		if (InputManager::GetKeyPress(eKeyCode::RBTN))
 		{
-			float2 vMouseDir = InputMgr::GetMouseDir();
-			vRot.y += TimeMgr::DeltaTime() * vMouseDir.x;
-			vRot.x -= TimeMgr::DeltaTime() * vMouseDir.y;
+			float2 vMouseDir = InputManager::GetMouseDir();
+			vRot.y += TimeManager::DeltaTime() * vMouseDir.x;
+			vRot.x -= TimeManager::DeltaTime() * vMouseDir.y;
 		}
 
 		tf->SetRelativePos(vPos);

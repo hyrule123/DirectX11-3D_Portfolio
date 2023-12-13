@@ -8,12 +8,12 @@
 #include "PCH_UserContents.h"
 
 #include "UserContentsInitializer.h"
-#include <EngineBase/Engine/ComMgr.h>
+#include <Engine/Manager/ComponentManager.h>
 #include "strKey_UserComponent.h"
 
 
 
-#define CONSTRUCTOR_T(T) ComMgr::AddComConstructor<T>(strKey::com::##T)
+#define CONSTRUCTOR_T(T) ComponentManager::AddComponentConstructor<T>(strKey::component::##T)
 
 namespace ehw
 {

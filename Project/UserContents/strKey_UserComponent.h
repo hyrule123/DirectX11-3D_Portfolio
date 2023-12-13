@@ -13,6 +13,6 @@
 
 
 
-namespace ehw::strKey::com
+namespace ehw::strKey::component
 {
 }

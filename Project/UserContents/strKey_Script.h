@@ -13,7 +13,7 @@
 
 
 
-namespace ehw::strKey::Script
+namespace ehw::strKey::script
 {
 	STRKEY Script_CameraMove = "Script_CameraMove";
 	STRKEY Script_Player = "Script_Player";
