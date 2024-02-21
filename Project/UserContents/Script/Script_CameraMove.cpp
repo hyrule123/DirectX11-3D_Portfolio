@@ -11,7 +11,7 @@
 namespace ehw
 {
 	Script_CameraMove::Script_CameraMove()
-		: mCamera()
+		: m_camera()
 		, mCamSpeed(100.f)
 	{
 	}
@@ -28,12 +28,12 @@ namespace ehw
 
 	void Script_CameraMove::Init()
 	{
-		mCamera = GetOwner()->GetComponent<Com_Camera>();
+		m_camera = GetOwner()->GetComponent<Com_Camera>();
 	}
 
 	void Script_CameraMove::Update()
 	{
-		eProjectionType projType = mCamera->GetProjectionType();
+		eProjectionType projType = m_camera->GetProjectionType();
 
 		switch (projType)
 		{
@@ -55,7 +55,7 @@ namespace ehw
 
 	void Script_CameraMove::Camera2DMove()
 	{
-		Com_Transform* tf = GetOwner()->GetComponent<Com_Transform>();
+		const std::shared_ptr<Com_Transform>& tf = GetOwner()->GetComponent<Com_Transform>();
 
 		// 키 입력에 따른 카메라 이동
 		float3 vPos = tf->GetRelativePos();
@@ -89,16 +89,16 @@ namespace ehw
 
 		if (InputManager::GetKeyPress(eKeyCode::N_1))
 		{
-			float fScale = mCamera->GetScale();
+			float fScale = m_camera->GetScale();
 			fScale += TimeManager::DeltaTime() * 1.f;
-			mCamera->SetScale(fScale);
+			m_camera->SetScale(fScale);
 		}
 
 		if (InputManager::GetKeyPress(eKeyCode::N_2))
 		{
-			float fScale = mCamera->GetScale();
+			float fScale = m_camera->GetScale();
 			fScale -= TimeManager::DeltaTime() * 1.f;
-			mCamera->SetScale(fScale);
+			m_camera->SetScale(fScale);
 		}
 
 		tf->SetRelativePos(vPos);
@@ -106,7 +106,7 @@ namespace ehw
 
 	void Script_CameraMove::Camera3DMove()
 	{
-		Com_Transform* tf = GetOwner()->GetComponent<Com_Transform>();
+		const std::shared_ptr<Com_Transform>& tf = GetOwner()->GetComponent<Com_Transform>();
 
 		float3 vPos = tf->GetRelativePos();
 		float3 vRot = tf->GetRelativeRotXYZ();

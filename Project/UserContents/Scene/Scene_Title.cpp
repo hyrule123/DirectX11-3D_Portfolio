@@ -17,7 +17,9 @@
 #include <Engine/Game/Component/Animator/Com_Animator3D.h>
 #include <Engine/Game/Component/Renderer/Com_Renderer_ParticleSystem.h>
 #include <Engine/Resource/Prefab.h>
+#include <Engine/Resource/Model3D/Model3D.h>
 #include <Engine/Game/Component/Renderer/Com_Renderer_UIBase.h>
+
 
 
 #include "../strKey_Script.h"
@@ -37,13 +39,13 @@ namespace ehw
 	{
 		{
 			// Main Com_Camera Game Object
-			GameObject* cameraObj = NewGameObject(eLayerType::Com_Camera);
+			const std::shared_ptr<GameObject>& cameraObj = NewGameObject(eLayerType::Com_Camera);
 			cameraObj->SetName("MainCamera");
 
-			Com_Transform* tr = cameraObj->AddComponent<Com_Transform>();
+			const std::shared_ptr<Com_Transform>& tr = cameraObj->AddComponent<Com_Transform>();
 			tr->SetRelativePos(float3(0.0f, 0.0f, -20.0f));
 
-			Com_Camera* cameraComp = cameraObj->AddComponent<Com_Camera>();
+			const std::shared_ptr<Com_Camera>& cameraComp = cameraObj->AddComponent<Com_Camera>();
 			cameraComp->SetProjectionType(eProjectionType::Perspective);
 
 			cameraObj->AddComponent(strKey::script::Script_CameraMove);
@@ -53,21 +55,21 @@ namespace ehw
 		}
 
 		{
-			GameObject* dirLight = NewGameObject(eLayerType::Player);
+			const std::shared_ptr<GameObject>& dirLight = NewGameObject(eLayerType::Player);
 			dirLight->AddComponent<Com_Transform>();
 
-			Com_Light3D* light3d = dirLight->AddComponent<Com_Light3D>();
+			const std::shared_ptr<Com_Light3D>& light3d = dirLight->AddComponent<Com_Light3D>();
 			light3d->SetLightType(eLightType::Directional);
 			light3d->SetDiffuse(float4(0.3f, 0.3f, 0.3f, 1.f));
 			light3d->SetAmbient(float4(0.3f, 0.3f, 0.3f, 1.f));
 		}
 
 		{
-			GameObject* dirLight = NewGameObject(eLayerType::Player);
+			const std::shared_ptr<GameObject>& dirLight = NewGameObject(eLayerType::Player);
 			dirLight->AddComponent<Com_Transform>();
 			dirLight->SetName("Point1000");
 
-			Com_Light3D* light3d = dirLight->AddComponent<Com_Light3D>();
+			const std::shared_ptr<Com_Light3D>& light3d = dirLight->AddComponent<Com_Light3D>();
 			light3d->SetLightType(eLightType::Point);
 			light3d->SetRadius(1000.f);
 			light3d->SetDiffuse(float4(0.3f, 0.3f, 0.3f, 1.f));
@@ -75,11 +77,11 @@ namespace ehw
 		}
 
 		{
-			GameObject* dirLight = NewGameObject(eLayerType::Player);
+			const std::shared_ptr<GameObject>& dirLight = NewGameObject(eLayerType::Player);
 			dirLight->AddComponent<Com_Transform>();
 			dirLight->SetName("Point500");
 
-			Com_Light3D* light3d = dirLight->AddComponent<Com_Light3D>();
+			const std::shared_ptr<Com_Light3D>& light3d = dirLight->AddComponent<Com_Light3D>();
 			light3d->SetLightType(eLightType::Point);
 			light3d->SetRadius(500.f);
 
@@ -88,13 +90,23 @@ namespace ehw
 			light3d->SetAmbient(float4(0.3f, 0.3f, 0.3f, 1.f));
 		}
 
+		{
+			const auto& house = NewGameObject(eLayerType::Player);
+			ASSERT(house, "house 인스턴스 생성 실패");
+			house->SetName("HOUSE");
+			
+			const auto& houseModel = ResourceManager<Model3D>::Load("House");
+			eResult result = houseModel->Instantiate(house.get());
+			ASSERT(eResultSuccess(result), "생성 실패");
+		}
+
 
 		{
-			GameObject* player = NewGameObject(eLayerType::Player);
-			player->AddComponent<Script_Player>();
+			//const std::shared_ptr<GameObject>& player = NewGameObject(eLayerType::Player);
+			//player->AddComponent<Script_Player>();
 
 
-			//GameObject* modeling = meshdata->Instantiate(eLayerType::Player);
+			//const std::shared_ptr<GameObject>& modeling = meshdata->Instantiate(eLayerType::Player);
 		}
 	}
 

@@ -11,7 +11,7 @@ namespace ehw
 		Script_CameraMove();
 
 		Script_CameraMove(const Script_CameraMove& _other);
-		CLONE(Script_CameraMove);
+		CLONE_ABLE(Script_CameraMove);
 
 
 		virtual ~Script_CameraMove();
@@ -24,7 +24,7 @@ namespace ehw
 		void Camera3DMove();
 
 	private:
-		Com_Camera* mCamera;
+		std::shared_ptr<Com_Camera> m_camera;
 		
 		float mCamSpeed;
 
