@@ -75,7 +75,7 @@
     <IntDir>$(SolutionDir)BinObj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetExt>.lib</TargetExt>
     <OutDir>$(SolutionDir)External\lib\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
-    <IncludePath>$(SolutionDir)Project\Base\Engine;$(SolutionDir)Project;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Project;$(SolutionDir)Project\Base\Engine;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <ExternalIncludePath>$(SolutionDir)External\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</ExternalIncludePath>
     <LibraryPath>$(SolutionDir)External\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
   </PropertyGroup>
@@ -83,7 +83,7 @@
     <IntDir>$(SolutionDir)BinObj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetExt>.lib</TargetExt>
     <OutDir>$(SolutionDir)External\lib\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
-    <IncludePath>$(SolutionDir)Project\Base\Engine;$(SolutionDir)Project;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Project;$(SolutionDir)Project\Base\Engine;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <ExternalIncludePath>$(SolutionDir)External\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</ExternalIncludePath>
     <LibraryPath>$(SolutionDir)External\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
   </PropertyGroup>
@@ -91,7 +91,7 @@
     <IntDir>$(SolutionDir)BinObj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetExt>.lib</TargetExt>
     <OutDir>$(SolutionDir)External\lib\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
-    <IncludePath>$(SolutionDir)Project\Base\Engine;$(SolutionDir)Project;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Project;$(SolutionDir)Project\Base\Engine;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <ExternalIncludePath>$(SolutionDir)External\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</ExternalIncludePath>
     <LibraryPath>$(SolutionDir)External\lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
@@ -99,7 +99,7 @@
     <IntDir>$(SolutionDir)BinObj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetExt>.lib</TargetExt>
     <OutDir>$(SolutionDir)External\lib\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
-    <IncludePath>$(SolutionDir)Project\Base\Engine;$(SolutionDir)Project;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Project;$(SolutionDir)Project\Base\Engine;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <ExternalIncludePath>$(SolutionDir)External\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</ExternalIncludePath>
     <LibraryPath>$(SolutionDir)External\lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
