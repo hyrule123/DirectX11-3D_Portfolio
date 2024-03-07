@@ -1,11 +1,11 @@
 
 #include "Script_CameraMove.h"
 
-#include <Engine/Game/GameObject.h>
-#include <Engine/Game/Component/Camera/Com_Camera.h>
-#include <Engine/Game/Component/Transform/Com_Transform.h>
-#include <Engine/Manager/InputManager.h>
-#include <Engine/Manager/TimeManager.h>
+#include <Base/Engine/Game/GameObject.h>
+#include <Base/Engine/Game/Component/Camera/Com_Camera.h>
+#include <Base/Engine/Game/Component/Transform/Com_Transform.h>
+#include <Base/Engine/Manager/InputManager.h>
+#include <Base/Engine/Manager/TimeManager.h>
 
 
 namespace ehw
@@ -58,7 +58,7 @@ namespace ehw
 		const std::shared_ptr<Com_Transform>& tf = GetOwner()->GetComponent<Com_Transform>();
 
 		// 키 입력에 따른 카메라 이동
-		float3 vPos = tf->GetRelativePos();
+		float3 vPos = tf->GetLocalPosition();
 
 		float fSpeed = mCamSpeed;
 		if (InputManager::GetKeyPress(eKeyCode::LSHIFT))
@@ -101,19 +101,19 @@ namespace ehw
 			m_camera->SetScale(fScale);
 		}
 
-		tf->SetRelativePos(vPos);
+		tf->SetLocalPosition(vPos);
 	}
 
 	void Script_CameraMove::Camera3DMove()
 	{
 		const std::shared_ptr<Com_Transform>& tf = GetOwner()->GetComponent<Com_Transform>();
 
-		float3 vPos = tf->GetRelativePos();
-		float3 vRot = tf->GetRelativeRotXYZ();
+		float3 vPos = tf->GetLocalPosition();
+		float3 vRot = tf->GetLocalRotation().ToEuler();
 
-		float3 vFront = tf->Forward();
-		float3 vUp = tf->Up();
-		float3 vRight = tf->Right();
+		float3 vFront = tf->GetLocalDirection(eDirection::Forward);
+		float3 vUp = tf->GetLocalDirection(eDirection::Up);
+		float3 vRight = tf->GetLocalDirection(eDirection::Right);
 
 		float fSpeed = mCamSpeed;
 
@@ -149,8 +149,8 @@ namespace ehw
 			vRot.x -= TimeManager::DeltaTime() * vMouseDir.y;
 		}
 
-		tf->SetRelativePos(vPos);
-		tf->SetRelativeRotXYZ(vRot);
+		tf->SetLocalPosition(vPos);
+		tf->SetLocalRotation(vRot);
 	}
 }
 

@@ -8,7 +8,7 @@
 
 
 #include "UserContentsInitializer.h"
-#include <Engine/Manager/ComponentManager.h>
+#include <Base/Engine/Manager/ComponentManager.h>
 #include "strKey_Script.h"
 
 
