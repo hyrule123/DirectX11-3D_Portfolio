@@ -1,7 +1,11 @@
 #include "PCH_Client.h"
 
-#include <Base/Engine/GameMainWindow.h>
+#include <Base/Engine/MainWindow.h>
 #include <UserContents/UserContentsInitializer.h>
+
+#ifdef EDITOR_INCLUDED
+#include <Editor/EditorManager.h>
+#endif
 
 inline void DebugCheck(long _block);
 BOOL APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -10,7 +14,6 @@ BOOL APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_ int       nCmdShow)
 {
     DebugCheck(0);
-
 
     tDesc_GameMainWindow Desc{};
     Desc.Inst = hInstance;
@@ -29,7 +32,12 @@ BOOL APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     Desc.GPUDesc.ResolutionY = (UINT)Desc.Height;
     Desc.GPUDesc.RefreshRate = 144u;
 
-    return GameMainWindow::Run(Desc);
+#ifdef EDITOR_INCLUDED
+    Desc.EditorHandleFunction = ehw::editor::EditorManager::GetEditorWindowHandleFunction();
+    Desc.EditorRunFunction = ehw::editor::EditorManager::GetEditorRunFunction();
+#endif
+
+    return MainWindow::Run(Desc);
 }
 
 inline void DebugCheck(long _block)

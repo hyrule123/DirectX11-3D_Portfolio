@@ -7,6 +7,10 @@
 
 #ifdef _DEBUG
 #pragma comment(lib, "Engine/x64/Debug/Engine.lib")
+
+//DEBUG 모드일 시 Editor 링크
+#include <Base/Editor/PCH_Editor.h>
+#pragma comment(lib, "Editor/x64/Debug/Editor.lib")
 #else _DEBUG
 #pragma comment(lib, "Engine/x64/Release/Engine.lib")
 #endif _DEBUG
