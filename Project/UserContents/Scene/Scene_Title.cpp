@@ -1,23 +1,29 @@
 #include "Scene_Title.h"
 
-#include <Base/Engine/Manager/ResourceManager.h>
-#include <Base/Engine/Manager/RenderManager.h>
-#include <Base/Engine/Game/Component/Transform/Com_Transform.h>
-#include <Base/Engine/Game/Component/Renderer/Com_Renderer_Mesh.h>
-#include <Base/Engine/Resource/Texture.h>
-#include <Base/Engine/Game/Component/Camera/Com_Camera.h>
-#include <Base/Engine/Game/Component/Renderer/Com_Renderer_Sprite.h>
-#include <Base/Engine/Game/Component/Script/GridScript.h>
-#include <Base/Engine/Manager/InputManager.h>
-#include <Base/Engine/Game/Component/Collider/ICollider2D.h>
-#include <Base/Engine/Manager/CollisionManager.h>
-#include <Base/Engine/Game/Component/Animator/Com_Animator2D.h>
-#include <Base/Engine/Game/Component/Light/Com_Light3D.h>
-#include <Base/Engine/Game/Component/Animator/Com_Animator3D.h>
-#include <Base/Engine/Game/Component/Renderer/Com_Renderer_ParticleSystem.h>
+#include <Engine/Manager/ResourceManager.h>
+#include <Engine/Manager/RenderManager.h>
+#include <Engine/Manager/InputManager.h>
+#include <Engine/Manager/CollisionManager.h>
+
+#include <Engine/Game/GameObject.h>
+#include <Engine/Game/Component/Transform/Com_Transform.h>
+#include <Engine/Game/Component/Renderer/Com_Renderer_Mesh.h>
+#include <Engine/Game/Component/Camera/Com_Camera.h>
+#include <Engine/Game/Component/Renderer/Com_Renderer_Sprite.h>
+#include <Engine/Game/Component/Script/GridScript.h>
+#include <Engine/Game/Component/Collider/ICollider2D.h>
+#include <Engine/Game/Component/Animator/Com_Animator2D.h>
+#include <Engine/Game/Component/Light/Com_Light3D.h>
+#include <Engine/Game/Component/Animator/Com_Animator3D.h>
+#include <Engine/Game/Component/Renderer/Com_Renderer_ParticleSystem.h>
+#include <Engine/Game/Component/Renderer/Com_Renderer_UIBase.h>
+
+
+
 #include <Base/Engine/Resource/Prefab.h>
 #include <Base/Engine/Resource/Model3D/Model3D.h>
-#include <Base/Engine/Game/Component/Renderer/Com_Renderer_UIBase.h>
+#include <Base/Engine/Resource/Texture.h>
+
 
 
 #include "../strKey_Script.h"
@@ -37,7 +43,7 @@ namespace ehw
 	{
 		{
 			// Main Com_Camera Game Object
-			const std::shared_ptr<GameObject>& cameraObj = NewGameObject(eLayer::Com_Camera);
+			const std::shared_ptr<GameObject>& cameraObj = NewGameObject();
 			cameraObj->SetName("MainCamera");
 
 			const std::shared_ptr<Com_Transform>& tr = cameraObj->AddComponent<Com_Transform>();
@@ -53,7 +59,7 @@ namespace ehw
 		}
 
 		{
-			const std::shared_ptr<GameObject>& dirLight = NewGameObject(eLayer::Player);
+			const std::shared_ptr<GameObject>& dirLight = NewGameObject();
 			dirLight->AddComponent<Com_Transform>();
 
 			const std::shared_ptr<Com_Light3D>& light3d = dirLight->AddComponent<Com_Light3D>();
@@ -63,7 +69,7 @@ namespace ehw
 		}
 
 		{
-			const std::shared_ptr<GameObject>& dirLight = NewGameObject(eLayer::Player);
+			const std::shared_ptr<GameObject>& dirLight = NewGameObject();
 			dirLight->AddComponent<Com_Transform>();
 			dirLight->SetName("Point1000");
 
@@ -75,7 +81,7 @@ namespace ehw
 		}
 
 		{
-			const std::shared_ptr<GameObject>& dirLight = NewGameObject(eLayer::Player);
+			const std::shared_ptr<GameObject>& dirLight = NewGameObject();
 			dirLight->AddComponent<Com_Transform>();
 			dirLight->SetName("Point500");
 
@@ -89,13 +95,24 @@ namespace ehw
 		}
 
 		{
-			const auto& house = NewGameObject(eLayer::Player);
+			const auto& house = NewGameObject();
+			
 			ASSERT(house, "house 인스턴스 생성 실패");
 			house->SetName("HOUSE");
 			
-			const auto& houseModel = ResourceManager<Model3D>::Load("House");
+			const auto& houseModel = ResourceManager<Model3D>::Load("Player_Default");
 			eResult result = houseModel->Instantiate(house);
 			ASSERT(eResultSuccess(result), "생성 실패");
+
+			const auto& childs = house->Transform()->GetChilds();
+
+			for (size_t i = 0; i < 10; ++i)
+			{
+				childs[i]->GetOwner()->AddComponent(strKey::script::Script_Test);
+			}
+			house->AddComponent(strKey::script::Script_Test2);
+
+			int a = 3;
 		}
 
 

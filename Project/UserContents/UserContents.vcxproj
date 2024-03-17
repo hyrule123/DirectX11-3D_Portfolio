@@ -204,10 +204,13 @@ start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene 
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="define_UserContents.h" />
     <ClInclude Include="PCH_UserContents.h" />
     <ClInclude Include="Scene\Scene_Title.h" />
     <ClInclude Include="Script\Script_CameraMove.h" />
     <ClInclude Include="Script\Script_Player.h" />
+    <ClInclude Include="Script\Script_Test.h" />
+    <ClInclude Include="Script\Script_Test2.h" />
     <ClInclude Include="strKey_Scene.h" />
     <ClInclude Include="strKey_Script.h" />
     <ClInclude Include="strKey_Shader.h" />
@@ -224,6 +227,8 @@ start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene 
     <ClCompile Include="Scene\Scene_Title.cpp" />
     <ClCompile Include="Script\Script_CameraMove.cpp" />
     <ClCompile Include="Script\Script_Player.cpp" />
+    <ClCompile Include="Script\Script_Test.cpp" />
+    <ClCompile Include="Script\Script_Test2.cpp" />
     <ClCompile Include="UserContentsInitializer.cpp" />
     <ClCompile Include="UserContentsInitializer_Component.cpp" />
     <ClCompile Include="UserContentsInitializer_Scene.cpp" />
