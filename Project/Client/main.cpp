@@ -15,6 +15,8 @@ BOOL APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 {
     DebugCheck(0);
 
+    using namespace ehw;
+
     tDesc_GameMainWindow Desc{};
     Desc.Inst = hInstance;
     Desc.TitleName = TEXT("Monster Hunter World");
@@ -33,7 +35,6 @@ BOOL APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     Desc.GPUDesc.RefreshRate = 144u;
 
 #ifdef EDITOR_INCLUDED
-    Desc.EditorHandleFunction = ehw::editor::EditorManager::GetEditorWindowHandleFunction();
     Desc.EditorRunFunction = ehw::editor::EditorManager::GetEditorRunFunction();
 #endif
 

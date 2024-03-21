@@ -100,7 +100,9 @@ namespace ehw
 			const auto& colB = NewGameObject(0u, "Collider B");
 
 			colA->AddComponent(strKey::component::Com_Collider2D_AABB);
+			colA->Transform()->SetLocalPosition(float3(-100.f, 0.f, 0.f));
 			colB->AddComponent(strKey::component::Com_Collider2D_AABB);
+			colB->Transform()->SetLocalPosition(float3(0.f, 100.f, 0.f));
 		}
 
 		{
