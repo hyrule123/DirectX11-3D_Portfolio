@@ -1,4 +1,5 @@
 
+:: 미사용 - shadertoolsconfig.json로 해결함.
 :: Take Arguments From Build Event
 set Platform=%1
 set Configuration=%2

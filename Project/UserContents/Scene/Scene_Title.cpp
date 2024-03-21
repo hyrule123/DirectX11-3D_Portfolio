@@ -95,24 +95,33 @@ namespace ehw
 		}
 
 		{
-			const auto& house = NewGameObject();
-			
-			ASSERT(house, "house 인스턴스 생성 실패");
-			house->SetName("HOUSE");
-			
-			const auto& houseModel = ResourceManager<Model3D>::Load("Player_Default");
-			eResult result = houseModel->Instantiate(house);
-			ASSERT(eResultSuccess(result), "생성 실패");
+			CollisionManager::SetCollisionMask(0, 0, true);
+			const auto& colA = NewGameObject(0u, "Collider A");
+			const auto& colB = NewGameObject(0u, "Collider B");
 
-			const auto& childs = house->Transform()->GetChilds();
+			colA->AddComponent(strKey::component::Com_Collider2D_AABB);
+			colB->AddComponent(strKey::component::Com_Collider2D_AABB);
+		}
 
-			for (size_t i = 0; i < 10; ++i)
-			{
-				childs[i]->GetOwner()->AddComponent(strKey::script::Script_Test);
-			}
-			house->AddComponent(strKey::script::Script_Test2);
+		{
+			//const auto& house = NewGameObject();
+			//
+			//ASSERT(house, "house 인스턴스 생성 실패");
+			//house->SetName("HOUSE");
+			//
+			//const auto& houseModel = ResourceManager<Model3D>::Load("Player_Default");
+			//eResult result = houseModel->Instantiate(house);
+			//ASSERT(eResultSuccess(result), "생성 실패");
 
-			int a = 3;
+			//const auto& childs = house->Transform()->GetChilds();
+
+			//for (size_t i = 0; i < 10; ++i)
+			//{
+			//	childs[i]->GetOwner()->AddComponent(strKey::script::Script_Test);
+			//}
+			//house->AddComponent(strKey::script::Script_Test2);
+
+			//int a = 3;
 		}
 
 
