@@ -5,10 +5,10 @@
 //=========================================================
 
 
-#include "PCH_UserContents.h"
+#include "PCH_Contents.h"
 
-#include "UserContentsInitializer.h"
-#include <Base/Engine/Manager/ComponentManager.h>
+#include "ContentsInitializer.h"
+#include <Engine/Manager/ComponentManager.h>
 #include "strKey_UserComponent.h"
 
 
@@ -18,7 +18,7 @@
 namespace ehw
 {
 
-	void UserContentsInitializer::InitUserComponent()
+	void ContentsInitializer::InitUserComponent()
 	{
 	}
 }

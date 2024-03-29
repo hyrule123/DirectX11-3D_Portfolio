@@ -1,4 +1,4 @@
-#include "UserContents/Script/Script_Test2.h"
+#include "Contents/Script/Script_Test2.h"
 
 #include <Engine/Manager/InputManager.h>
 #include <Engine/Game/GameObject.h>

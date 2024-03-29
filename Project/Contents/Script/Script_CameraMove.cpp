@@ -1,11 +1,11 @@
 
 #include "Script_CameraMove.h"
 
-#include <Base/Engine/Game/GameObject.h>
-#include <Base/Engine/Game/Component/Camera/Com_Camera.h>
-#include <Base/Engine/Game/Component/Transform/Com_Transform.h>
-#include <Base/Engine/Manager/InputManager.h>
-#include <Base/Engine/Manager/TimeManager.h>
+#include <Engine/Game/GameObject.h>
+#include <Engine/Game/Component/Camera/Com_Camera.h>
+#include <Engine/Game/Component/Transform/Com_Transform.h>
+#include <Engine/Manager/InputManager.h>
+#include <Engine/Manager/TimeManager.h>
 
 
 namespace ehw
@@ -26,7 +26,7 @@ namespace ehw
 	{
 	}
 
-	void Script_CameraMove::Init()
+	void Script_CameraMove::Awake()
 	{
 		m_camera = GetOwner()->GetComponent<Com_Camera>();
 	}
@@ -55,7 +55,7 @@ namespace ehw
 
 	void Script_CameraMove::Camera2DMove()
 	{
-		const std::shared_ptr<Com_Transform>& tf = GetOwner()->GetComponent<Com_Transform>();
+		Com_Transform* tf = GetOwner()->GetComponent<Com_Transform>();
 
 		// 키 입력에 따른 카메라 이동
 		float3 vPos = tf->GetLocalPosition();
@@ -106,7 +106,7 @@ namespace ehw
 
 	void Script_CameraMove::Camera3DMove()
 	{
-		const std::shared_ptr<Com_Transform>& tf = GetOwner()->GetComponent<Com_Transform>();
+		Com_Transform* tf = GetOwner()->GetComponent<Com_Transform>();
 
 		float3 vPos = tf->GetLocalPosition();
 		float3 vRot = tf->GetLocalRotation().ToEuler();

@@ -1,7 +1,7 @@
 #ifndef PCH_CLIENT
 #define PCH_CLIENT
 
-#include <UserContents/PCH_UserContents.h>
+#include <Contents/PCH_Contents.h>
 
 
 #include "targetver.h"
@@ -18,9 +18,9 @@
 #ifdef _WIN64
 
 #ifdef _DEBUG
-#pragma comment(lib, "UserContents/x64/Debug/UserContents.lib")
+#pragma comment(lib, "Contents/x64/Debug/Contents.lib")
 #else _DEBUG
-#pragma comment(lib, "UserContents/x64/Release/UserContents.lib")
+#pragma comment(lib, "Contents/x64/Release/Contents.lib")
 #endif _DEBUG
 
 #else _WIN64

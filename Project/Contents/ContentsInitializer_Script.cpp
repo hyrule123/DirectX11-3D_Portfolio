@@ -5,15 +5,15 @@
 //=========================================================
 
 
-#include "PCH_UserContents.h"
+#include "PCH_Contents.h"
 
-#include "UserContentsInitializer.h"
-#include <Base/Engine/Manager/ComponentManager.h>
+#include "ContentsInitializer.h"
+#include <Engine/Manager/ComponentManager.h>
 #include "strKey_Script.h"
 
 
-#include "Script\Script_Player.h"
 #include "Script\Script_CameraMove.h"
+#include "Script\Script_Player.h"
 #include "Script\Script_Test.h"
 #include "Script\Script_Test2.h"
 
@@ -22,10 +22,10 @@
 namespace ehw
 {
 
-	void UserContentsInitializer::InitScript()
+	void ContentsInitializer::InitScript()
 	{
-		CONSTRUCTOR_T(Script_Player);
 		CONSTRUCTOR_T(Script_CameraMove);
+		CONSTRUCTOR_T(Script_Player);
 		CONSTRUCTOR_T(Script_Test);
 		CONSTRUCTOR_T(Script_Test2);
 	}

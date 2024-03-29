@@ -1,7 +1,7 @@
 
 namespace ehw
 {
-	class UserContentsInitializer
+	class ContentsInitializer
 	{
 	public:
 		static void Init();

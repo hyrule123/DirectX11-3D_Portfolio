@@ -1,5 +1,5 @@
 #pragma once
-#include <Base/Engine/Game/Component/Script/iScript.h>
+#include <Engine/Game/Component/Script/iScript.h>
 
 namespace ehw
 {
@@ -16,7 +16,7 @@ namespace ehw
 
 		virtual ~Script_CameraMove();
 
-		virtual void Init();
+		virtual void Awake();
 		virtual void Update();
 
 	private:
@@ -24,10 +24,9 @@ namespace ehw
 		void Camera3DMove();
 
 	private:
-		std::shared_ptr<Com_Camera> m_camera;
+		Com_Camera* m_camera;
 		
 		float mCamSpeed;
-
 	};
 }
 

@@ -1,4 +1,4 @@
-#include "UserContents/Script/Script_Test.h"
+#include "Contents/Script/Script_Test.h"
 
 #include <Engine/Manager/InputManager.h>
 
