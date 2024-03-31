@@ -14,9 +14,6 @@
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
-    <ClCompile Include="Scene_Title.cpp" />
-    <ClCompile Include="ContentsClassInitializer_Scene.cpp" />
-    <ClCompile Include="ContentsClassInitializer_Script.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="Scene_Title.cpp" />
     <ClCompile Include="ContentsClassInitializer_Scene.cpp" />
@@ -64,27 +61,12 @@
     <ClCompile Include="UserContentsInitializer_Script.cpp">
       <Filter>Auto Generated</Filter>
     </ClCompile>
-    <ClCompile Include="UserContentsInitializer.cpp">
-      <Filter>Auto Generated</Filter>
-    </ClCompile>
-    <ClCompile Include="UserContentsInitializer_Component.cpp">
-      <Filter>Auto Generated</Filter>
-    </ClCompile>
-    <ClCompile Include="UserContentsInitializer_Scene.cpp">
-      <Filter>Auto Generated</Filter>
-    </ClCompile>
-    <ClCompile Include="UserContentsInitializer_Script.cpp">
-      <Filter>Auto Generated</Filter>
-    </ClCompile>
     <ClCompile Include="PCH_Contents.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
     <ClCompile Include="PCH_Contents.cpp" />
-    <ClCompile Include="ContentsInitializer_Component.cpp" />
-    <ClCompile Include="ContentsInitializer_Scene.cpp" />
-    <ClCompile Include="ContentsInitializer_Script.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
-    <ClCompile Include="*.cpp" />
+    <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="*.cpp" />
     <ClCompile Include="*.cpp" />
     <ClCompile Include="*.cpp" />
@@ -131,9 +113,6 @@
     </ClCompile>
     <ClCompile Include="ContentsClassInitializer_Script.cpp">
       <Filter>Auto Generated</Filter>
-    </ClCompile>
-    <ClCompile Include="PCH_UserContents.cpp">
-      <Filter>PCH</Filter>
     </ClCompile>
     <ClCompile Include="ContentsClassInitializer_Scene.cpp">
       <Filter>Auto Generated</Filter>
@@ -166,6 +145,9 @@
     <ClCompile Include="ContentsInitializer_Scene.cpp" />
     <ClCompile Include="ContentsInitializer_Script.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
+    <ClCompile Include="ContentsInitializer_Component.cpp" />
+    <ClCompile Include="ContentsInitializer_Scene.cpp" />
+    <ClCompile Include="ContentsInitializer_Script.cpp" />
     <ClCompile Include="ContentsInitializer_Component.cpp" />
     <ClCompile Include="ContentsInitializer_Scene.cpp" />
     <ClCompile Include="ContentsInitializer_Script.cpp" />
