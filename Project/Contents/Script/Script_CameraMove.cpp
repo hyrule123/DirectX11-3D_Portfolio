@@ -28,6 +28,7 @@ namespace ehw
 
 	void Script_CameraMove::Awake()
 	{
+
 		m_camera = GetOwner()->GetComponent<Com_Camera>();
 	}
 

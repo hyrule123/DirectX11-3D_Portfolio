@@ -106,9 +106,9 @@ namespace ehw
 			std::shared_ptr<GameObject> colB = std::make_shared<GameObject>("Collider B");
 
 			colA->AddComponent(strKey::component::Com_Collider2D_AABB);
-			colA->Transform()->SetLocalPosition(float3(-100.f, 0.f, 0.f));
+			colA->Transform()->SetLocalPosition(float3(-101.f, 0.f, 0.f));
 			colB->AddComponent(strKey::component::Com_Collider2D_AABB);
-			colB->Transform()->SetLocalPosition(float3(0.f, 100.f, 0.f));
+			colB->Transform()->SetLocalPosition(float3(0.f, 101.f, 0.f));
 
 			AddGameObject(colA, 0u);
 			AddGameObject(colB, 0u);

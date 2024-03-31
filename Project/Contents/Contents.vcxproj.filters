@@ -13,9 +13,6 @@
     </ClCompile>
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
-    <ClCompile Include="Scene_Title.cpp" />
-    <ClCompile Include="ContentsClassInitializer_Scene.cpp" />
-    <ClCompile Include="ContentsClassInitializer_Script.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="Scene_Title.cpp" />
     <ClCompile Include="ContentsClassInitializer_Scene.cpp" />
@@ -48,27 +45,14 @@
     <ClCompile Include="Script\Script_Player.cpp" />
     <ClCompile Include="ContentsClassInitializer_Scene.cpp" />
     <ClCompile Include="ContentsClassInitializer_Script.cpp" />
-    <ClCompile Include="PCH_UserContents.cpp" />
     <ClCompile Include="Scene_Title.cpp" />
     <ClCompile Include="UserContentsInitializer_Component.cpp">
-      <Filter>Init</Filter>
-    </ClCompile>
-    <ClCompile Include="UserContentsInitializer_Scene.cpp">
-      <Filter>Init</Filter>
-    </ClCompile>
-    <ClCompile Include="UserContentsInitializer_Script.cpp">
-      <Filter>Init</Filter>
-    </ClCompile>
-    <ClCompile Include="UserContentsInitializer_Component.cpp">
       <Filter>Auto Generated</Filter>
     </ClCompile>
     <ClCompile Include="UserContentsInitializer_Scene.cpp">
       <Filter>Auto Generated</Filter>
     </ClCompile>
     <ClCompile Include="UserContentsInitializer_Script.cpp">
-      <Filter>Auto Generated</Filter>
-    </ClCompile>
-    <ClCompile Include="UserContentsInitializer.cpp">
       <Filter>Auto Generated</Filter>
     </ClCompile>
     <ClCompile Include="UserContentsInitializer_Component.cpp">
@@ -95,11 +79,11 @@
     <ClCompile Include="PCH_Contents.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
+    <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="ContentsInitializer_Component.cpp" />
     <ClCompile Include="ContentsInitializer_Scene.cpp" />
     <ClCompile Include="ContentsInitializer_Script.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
-    <ClCompile Include="*.cpp" />
     <ClCompile Include="*.cpp" />
     <ClCompile Include="*.cpp" />
     <ClCompile Include="*.cpp" />
@@ -160,7 +144,6 @@
     <ClCompile Include="Scene_Title.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="ContentsClassInitializer.cpp" />
     <ClCompile Include="ContentsClassInitializer_Script.cpp">
       <Filter>Auto Generated</Filter>
     </ClCompile>
@@ -183,6 +166,9 @@
     <ClCompile Include="ContentsInitializer_Scene.cpp" />
     <ClCompile Include="ContentsInitializer_Script.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
+    <ClCompile Include="ContentsInitializer_Component.cpp" />
+    <ClCompile Include="ContentsInitializer_Scene.cpp" />
+    <ClCompile Include="ContentsInitializer_Script.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="strKey_Scene.h">

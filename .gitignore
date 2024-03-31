@@ -407,3 +407,6 @@ strKey_Shader.h
 UserContentsInitializer_Component.cpp
 UserContentsInitializer_Script.cpp
 UserContentsInitializer_Scene.cpp
+/Project/Contents/ContentsInitializer_Component.cpp
+/Project/Contents/ContentsInitializer_Scene.cpp
+/Project/Contents/ContentsInitializer_Script.cpp
