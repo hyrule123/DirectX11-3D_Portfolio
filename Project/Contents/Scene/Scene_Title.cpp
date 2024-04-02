@@ -43,7 +43,7 @@ namespace ehw
 	{
 		{
 			// Main Com_Camera Game Object
-			std::shared_ptr<GameObject> cameraObj = std::make_shared<GameObject>();
+			std::unique_ptr<GameObject> cameraObj = std::make_unique<GameObject>();
 			cameraObj->SetName("MainCamera");
 
 			Com_Transform* tr = cameraObj->Transform();
@@ -61,7 +61,7 @@ namespace ehw
 		}
 
 		{
-			std::shared_ptr<GameObject> dirLight = std::make_shared<GameObject>();
+			std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
 			//dirLight->AddComponent<Com_Transform>();
 
 			Com_Light3D* light3d = dirLight->AddComponent<Com_Light3D>();
@@ -73,7 +73,7 @@ namespace ehw
 		}
 
 		{
-			std::shared_ptr<GameObject> dirLight = std::make_shared<GameObject>();
+			std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
 			//dirLight->AddComponent<Com_Transform>();
 			dirLight->SetName("Point1000");
 
@@ -85,7 +85,7 @@ namespace ehw
 		}
 
 		{
-			std::shared_ptr<GameObject> dirLight = std::make_shared<GameObject>();
+			std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
 			//dirLight->AddComponent<Com_Transform>();
 			dirLight->SetName("Point500");
 
@@ -102,13 +102,13 @@ namespace ehw
 
 		{
 			CollisionManager::SetCollisionMask(0, 0, true);
-			std::shared_ptr<GameObject> colA = std::make_shared<GameObject>("Collider A");
-			std::shared_ptr<GameObject> colB = std::make_shared<GameObject>("Collider B");
+			std::unique_ptr<GameObject> colA = std::make_unique<GameObject>("Collider A");
+			std::unique_ptr<GameObject> colB = std::make_unique<GameObject>("Collider B");
 
 			colA->AddComponent(strKey::component::Com_Collider2D_AABB);
-			colA->Transform()->SetLocalPosition(float3(-101.f, 0.f, 0.f));
+			colA->Transform()->SetLocalPosition(float3(-50.f, 0.f, 0.f));
 			colB->AddComponent(strKey::component::Com_Collider2D_AABB);
-			colB->Transform()->SetLocalPosition(float3(0.f, 101.f, 0.f));
+			colB->Transform()->SetLocalPosition(float3(0.f, 50.f, 0.f));
 
 			AddGameObject(colA, 0u);
 			AddGameObject(colB, 0u);
@@ -136,11 +136,11 @@ namespace ehw
 
 
 		{
-			//std::shared_ptr<GameObject> player = NewGameObject(eLayer::Player);
+			//std::unique_ptr<GameObject> player = NewGameObject(eLayer::Player);
 			//player->AddComponent<Script_Player>();
 
 
-			//std::shared_ptr<GameObject> modeling = meshdata->Instantiate(eLayer::Player);
+			//std::unique_ptr<GameObject> modeling = meshdata->Instantiate(eLayer::Player);
 		}
 	}
 
