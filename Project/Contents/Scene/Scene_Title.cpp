@@ -3,9 +3,11 @@
 #include <Engine/Manager/ResourceManager.h>
 #include <Engine/Manager/RenderManager.h>
 #include <Engine/Manager/InputManager.h>
-#include <Engine/Manager/CollisionManager.h>
 
 #include <Engine/Game/GameObject.h>
+#include <Engine/Game/Collision/CollisionSystem.h>
+#include <Engine/Game/Collision/Collision3D.h>
+
 #include <Engine/Game/Component/Transform/Com_Transform.h>
 #include <Engine/Game/Component/Renderer/Com_Renderer_Mesh.h>
 #include <Engine/Game/Component/Camera/Com_Camera.h>
@@ -17,6 +19,9 @@
 #include <Engine/Game/Component/Animator/Com_Animator3D.h>
 #include <Engine/Game/Component/Renderer/Com_Renderer_ParticleSystem.h>
 #include <Engine/Game/Component/Renderer/Com_Renderer_UIBase.h>
+#include <Engine/Game/Component/Collider/Com_Collider3D_Cube.h>
+#include <Engine/Game/Component/Rigidbody/Com_Rigidbody_Dynamic.h>
+#include <Engine/Game/Component/Rigidbody/Com_Rigidbody_Static.h>
 
 
 
@@ -39,6 +44,11 @@ namespace ehw
 	Scene_Title::~Scene_Title()
 	{
 	}
+	void Scene_Title::Init(tDesc& _desc)
+	{
+		_desc.EnableCollision2D = true;
+		_desc.EnableCollision3D = true;
+	}
 	void Scene_Title::OnEnter()
 	{
 		{
@@ -47,7 +57,7 @@ namespace ehw
 			cameraObj->SetName("MainCamera");
 
 			Com_Transform* tr = cameraObj->Transform();
-			tr->SetLocalPosition(float3(0.0f, 0.0f, -20.0f));
+			tr->SetLocalPosition(float3(0.0f, 0.0f, -500.0f));
 
 			Com_Camera* cameraComp = cameraObj->AddComponent<Com_Camera>();
 			cameraComp->SetProjectionType(eProjectionType::Perspective);
@@ -101,7 +111,8 @@ namespace ehw
 		}
 
 		{
-			CollisionManager::SetCollisionMask(0, 0, true);
+			GetCollisionSystem()->SetCollisionMask(0, 0, true);
+			GetCollisionSystem()->SetCollisionMask(0, 1, true);
 			std::unique_ptr<GameObject> colA = std::make_unique<GameObject>("Collider A");
 			std::unique_ptr<GameObject> colB = std::make_unique<GameObject>("Collider B");
 
@@ -111,27 +122,68 @@ namespace ehw
 			colB->Transform()->SetLocalPosition(float3(0.f, 50.f, 0.f));
 
 			AddGameObject(colA, 0u);
-			AddGameObject(colB, 0u);
+			AddGameObject(colB, 1u);
+		}
+
+		{
+			GetCollisionSystem()->GetCollision3D()->EnableGravity(true, float3(0.f, -9.8f, 0.f));
+			physx::PxMaterial* material = GetCollisionSystem()->GetCollision3D()->GetDefaultPxMaterial();
+			material->setStaticFriction(500.f);
+			material->setDynamicFriction(500.f);
+			//material->setDamping(1.f);
+			material->setFlag(physx::PxMaterialFlag::eDISABLE_FRICTION, true);
+			material->setRestitution(0.f);
+
+			//material->setRestitution(0.f);
+			GetCollisionSystem()->SetCollisionMask(0u, 0u, true);
+			GetCollisionSystem()->SetCollisionMask(0u, 1u, true);
+
+
+			std::unique_ptr<GameObject> col3dA = std::make_unique<GameObject>("Collider 3D-A");
+
+			std::unique_ptr<GameObject> col3dB = std::make_unique<GameObject>("Collider 3D-B");
+
+			col3dA->Transform()->SetLocalPosition(float3(0.f, -100.f, 0.f));
+			col3dA->Transform()->SetLocalScale(float3(500.f, 100.f, 500.f));
+
+			col3dB->Transform()->SetLocalPosition(float3(0.f, 100.f, 0.f));
+			col3dB->Transform()->SetLocalScale(float3(100.f, 100.f, 100.f));
+
+			Com_Collider3D_Cube* colA = col3dA->AddComponent<Com_Collider3D_Cube>();
+			Com_Collider3D_Cube* colB = col3dB->AddComponent<Com_Collider3D_Cube>();
+
+			Com_Rigidbody_Dynamic* rigidDynamic = col3dB->AddComponent<Com_Rigidbody_Dynamic>();
+
+			rigidDynamic->SetMass(500.f);
+			rigidDynamic->EnableGravity(true);
+			rigidDynamic->SetRigidDynamicLockFlag(physx::PxRigidDynamicLockFlag::eLOCK_ANGULAR_X, true);
+			rigidDynamic->SetRigidDynamicLockFlag(physx::PxRigidDynamicLockFlag::eLOCK_LINEAR_X, true);
+			rigidDynamic->SetRigidDynamicLockFlag(physx::PxRigidDynamicLockFlag::eLOCK_LINEAR_Z, true);
+			rigidDynamic->SetRigidDynamicLockFlag(physx::PxRigidDynamicLockFlag::eLOCK_ANGULAR_Z, true);
+
+
+			AddGameObject(col3dA, 0u);
+			AddGameObject(col3dB, 1u);
 		}
 
 		{
 			
-			auto houseModel = ResourceManager<Model3D>::Load("Player_Default");
-			auto house = houseModel->Instantiate();
+			//auto houseModel = ResourceManager<Model3D>::Load("Player_Default");
+			//auto house = houseModel->Instantiate();
 
-			
+			//
 
-			//const auto& childs = house->Transform()->GetChilds();
+			////const auto& childs = house->Transform()->GetChilds();
 
-			for (size_t i = 0; i < 10; ++i)
-			{
-				house[i]->AddComponent(strKey::script::Script_Test);
-			}
-			house[11]->AddComponent(strKey::script::Script_Test2);
+			//for (size_t i = 0; i < 10; ++i)
+			//{
+			//	house[i]->AddComponent(strKey::script::Script_Test);
+			//}
+			//house[11]->AddComponent(strKey::script::Script_Test2);
 
-			int a = 3;
+			//int a = 3;
 
-			AddGameObjects(house, 0);
+			//AddGameObjects(house, 0);
 		}
 
 

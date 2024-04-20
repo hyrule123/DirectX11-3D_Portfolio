@@ -36,6 +36,7 @@ BOOL APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 #ifdef EDITOR_INCLUDED
     Desc.EditorRunFunction = ehw::editor::EditorManager::GetEditorRunFunction();
+    ehw::editor::EditorManager::OpenEditorAsDefault(true);
 #endif
 
     return MainWindow::Run(Desc);

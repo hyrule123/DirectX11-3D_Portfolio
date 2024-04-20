@@ -19,9 +19,9 @@
 
 #ifdef _DEBUG
 #pragma comment(lib, "Contents/x64/Debug/Contents.lib")
-#else _DEBUG
+#else //_DEBUG
 #pragma comment(lib, "Contents/x64/Release/Contents.lib")
-#endif _DEBUG
+#endif //_DEBUG
 
 #else _WIN64
 #error "x64만 지원합니다"

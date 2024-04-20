@@ -9,7 +9,8 @@ namespace ehw
 		Scene_Title();
 		virtual ~Scene_Title();
 
-		virtual void OnEnter() override;
+		void Init(tDesc& _desc) final;
+		void OnEnter() final;
 
 	private:
 	};
