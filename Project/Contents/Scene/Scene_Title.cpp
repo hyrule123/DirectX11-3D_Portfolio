@@ -128,11 +128,13 @@ namespace ehw
 		{
 			GetCollisionSystem()->GetCollision3D()->EnableGravity(true, float3(0.f, -9.8f, 0.f));
 			physx::PxMaterial* material = GetCollisionSystem()->GetCollision3D()->GetDefaultPxMaterial();
-			material->setStaticFriction(500.f);
-			material->setDynamicFriction(500.f);
-			//material->setDamping(1.f);
-			material->setFlag(physx::PxMaterialFlag::eDISABLE_FRICTION, true);
+			//material->setStaticFriction(0.f);
+			//material->setDynamicFriction(0.5f);
 			material->setRestitution(0.f);
+
+			//material->setDamping(1.f);
+			//material->setFlag(physx::PxMaterialFlag::eDISABLE_FRICTION, true);
+			
 
 			//material->setRestitution(0.f);
 			GetCollisionSystem()->SetCollisionMask(0u, 0u, true);
@@ -154,12 +156,13 @@ namespace ehw
 
 			Com_Rigidbody_Dynamic* rigidDynamic = col3dB->AddComponent<Com_Rigidbody_Dynamic>();
 
-			rigidDynamic->SetMass(500.f);
+			//rigidDynamic->SetDensity(10.f);
+			rigidDynamic->SetMass(50000.f);
 			rigidDynamic->EnableGravity(true);
-			rigidDynamic->SetRigidDynamicLockFlag(physx::PxRigidDynamicLockFlag::eLOCK_ANGULAR_X, true);
-			rigidDynamic->SetRigidDynamicLockFlag(physx::PxRigidDynamicLockFlag::eLOCK_LINEAR_X, true);
-			rigidDynamic->SetRigidDynamicLockFlag(physx::PxRigidDynamicLockFlag::eLOCK_LINEAR_Z, true);
-			rigidDynamic->SetRigidDynamicLockFlag(physx::PxRigidDynamicLockFlag::eLOCK_ANGULAR_Z, true);
+			//rigidDynamic->SetRigidDynamicLockFlag(physx::PxRigidDynamicLockFlag::eLOCK_ANGULAR_X, true);
+			//rigidDynamic->SetRigidDynamicLockFlag(physx::PxRigidDynamicLockFlag::eLOCK_LINEAR_X, true);
+			//rigidDynamic->SetRigidDynamicLockFlag(physx::PxRigidDynamicLockFlag::eLOCK_LINEAR_Z, true);
+			//rigidDynamic->SetRigidDynamicLockFlag(physx::PxRigidDynamicLockFlag::eLOCK_ANGULAR_Z, true);
 
 
 			AddGameObject(col3dA, 0u);

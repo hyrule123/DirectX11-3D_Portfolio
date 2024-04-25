@@ -25,6 +25,7 @@ BOOL APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     Desc.TopPos = 100;
     Desc.Width = 1280;
     Desc.Height = 720;
+    
 
     Desc.WindowIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ICON1));
 
@@ -32,7 +33,7 @@ BOOL APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     Desc.GPUDesc.ResolutionX = (UINT)Desc.Width;
     Desc.GPUDesc.ResolutionY = (UINT)Desc.Height;
-    Desc.GPUDesc.RefreshRate = 144u;
+    Desc.GPUDesc.RefreshRate = (UINT)60u;
 
 #ifdef EDITOR_INCLUDED
     Desc.EditorRunFunction = ehw::editor::EditorManager::GetEditorRunFunction();
