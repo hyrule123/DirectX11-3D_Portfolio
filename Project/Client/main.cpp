@@ -25,7 +25,6 @@ BOOL APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     Desc.TopPos = 100;
     Desc.Width = 1280;
     Desc.Height = 720;
-    
 
     Desc.WindowIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ICON1));
 

@@ -1,9 +1,9 @@
 
 #include "Script_CameraMove.h"
 
-#include <Engine/Game/GameObject.h>
-#include <Engine/Game/Component/Camera/Com_Camera.h>
-#include <Engine/Game/Component/Transform/Com_Transform.h>
+#include <Engine/Scene/GameObject.h>
+#include <Engine/Scene/Component/Camera/Com_Camera.h>
+#include <Engine/Scene/Component/Transform/Com_Transform.h>
 #include <Engine/Manager/InputManager.h>
 #include <Engine/Manager/TimeManager.h>
 

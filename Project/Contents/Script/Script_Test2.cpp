@@ -1,7 +1,7 @@
 #include "Contents/Script/Script_Test2.h"
 
 #include <Engine/Manager/InputManager.h>
-#include <Engine/Game/GameObject.h>
+#include <Engine/Scene/GameObject.h>
 
 namespace ehw
 {

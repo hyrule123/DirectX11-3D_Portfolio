@@ -4,24 +4,24 @@
 #include <Engine/Manager/RenderManager.h>
 #include <Engine/Manager/InputManager.h>
 
-#include <Engine/Game/GameObject.h>
-#include <Engine/Game/Collision/CollisionSystem.h>
-#include <Engine/Game/Collision/Collision3D.h>
+#include <Engine/Scene/GameObject.h>
+#include <Engine/Scene/Collision/CollisionSystem.h>
+#include <Engine/Scene/Collision/Collision3D.h>
 
-#include <Engine/Game/Component/Transform/Com_Transform.h>
-#include <Engine/Game/Component/Renderer/Com_Renderer_Mesh.h>
-#include <Engine/Game/Component/Camera/Com_Camera.h>
-#include <Engine/Game/Component/Renderer/Com_Renderer_Sprite.h>
-#include <Engine/Game/Component/Script/GridScript.h>
-#include <Engine/Game/Component/Collider/ICollider2D.h>
-#include <Engine/Game/Component/Animator/Com_Animator2D.h>
-#include <Engine/Game/Component/Light/Com_Light3D.h>
-#include <Engine/Game/Component/Animator/Com_Animator3D.h>
-#include <Engine/Game/Component/Renderer/Com_Renderer_ParticleSystem.h>
-#include <Engine/Game/Component/Renderer/Com_Renderer_UIBase.h>
-#include <Engine/Game/Component/Collider/Com_Collider3D_Cube.h>
-#include <Engine/Game/Component/Rigidbody/Com_Rigidbody_Dynamic.h>
-#include <Engine/Game/Component/Rigidbody/Com_Rigidbody_Static.h>
+#include <Engine/Scene/Component/Transform/Com_Transform.h>
+#include <Engine/Scene/Component/Renderer/Com_Renderer_Mesh.h>
+#include <Engine/Scene/Component/Camera/Com_Camera.h>
+#include <Engine/Scene/Component/Renderer/Com_Renderer_Sprite.h>
+#include <Engine/Scene/Component/Script/GridScript.h>
+#include <Engine/Scene/Component/Collider/ICollider2D.h>
+#include <Engine/Scene/Component/Animator/Com_Animator2D.h>
+#include <Engine/Scene/Component/Light/Com_Light3D.h>
+#include <Engine/Scene/Component/Animator/Com_Animator3D.h>
+#include <Engine/Scene/Component/Renderer/Com_Renderer_ParticleSystem.h>
+#include <Engine/Scene/Component/Renderer/Com_Renderer_UIBase.h>
+#include <Engine/Scene/Component/Collider/Com_Collider3D_Cube.h>
+#include <Engine/Scene/Component/Rigidbody/Com_Rigidbody_Dynamic.h>
+#include <Engine/Scene/Component/Rigidbody/Com_Rigidbody_Static.h>
 
 
 

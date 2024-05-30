@@ -2,13 +2,13 @@
 
 
 #include <Engine/Resource/Model3D/Animation3D.h>
-#include <Engine/Game/Component/Animator/Com_Animator3D.h>
-#include <Engine/Game/GameObject.h>
+#include <Engine/Scene/Component/Animator/Com_Animator3D.h>
+#include <Engine/Scene/GameObject.h>
 #include <Engine/Manager/InputManager.h>
 #include <Engine/Resource/Model3D/Model3D.h>
 #include <Engine/Manager/ResourceManager.h>
 
-#include <Engine/Game/Component/Transform/Com_Transform.h>
+#include <Engine/Scene/Component/Transform/Com_Transform.h>
 
 #include "Contents/define_Contents.h"
 
