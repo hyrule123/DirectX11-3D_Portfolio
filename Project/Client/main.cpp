@@ -1,11 +1,13 @@
 #include "PCH_Client.h"
 
-#include <Base/Engine/MainWindow.h>
+#include <Base/Engine/EngineMain.h>
 #include <Contents/ContentsInitializer.h>
 
 #ifdef EDITOR_INCLUDED
 #include <Editor/EditorManager.h>
 #endif
+
+ehw::tDesc_EngineMain Desc{};
 
 inline void DebugCheck(long _block);
 BOOL APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -16,8 +18,7 @@ BOOL APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     DebugCheck(0);
 
     using namespace ehw;
-
-    tDesc_GameMainWindow Desc{};
+    
     Desc.Inst = hInstance;
     Desc.TitleName = TEXT("Monster Hunter World");
     Desc.ClassName = TEXT("GameEngine Client");
@@ -39,7 +40,8 @@ BOOL APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     ehw::editor::EditorManager::OpenEditorAsDefault(true);
 #endif
 
-    return MainWindow::Run(Desc);
+    EngineMain mainWindow(Desc);
+    return mainWindow.Run();
 }
 
 inline void DebugCheck(long _block)

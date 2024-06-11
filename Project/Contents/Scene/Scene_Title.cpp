@@ -44,10 +44,8 @@ namespace ehw
 	Scene_Title::~Scene_Title()
 	{
 	}
-	void Scene_Title::Init(tDesc& _desc)
+	void Scene_Title::Init()
 	{
-		_desc.EnableCollision2D = true;
-		_desc.EnableCollision3D = true;
 	}
 	void Scene_Title::OnEnter()
 	{
@@ -64,7 +62,7 @@ namespace ehw
 
 			cameraObj->AddComponent(strKey::script::Script_CameraMove);
 
-			RenderManager::SetMainCamera(cameraComp);
+			RenderManager::GetInst().SetMainCamera(cameraComp);
 
 
 			AddGameObject(cameraObj, 0u);

@@ -22,6 +22,6 @@ namespace ehw
 	void ContentsInitializer::InitUserContents()
 	{
 		//예시 씬을 첫 시작으로 등록
-		SceneManager::LoadScene(strKey::scene::Scene_Title);
+		SceneManager::GetInst().LoadScene(strKey::scene::Scene_Title);
 	}
 }

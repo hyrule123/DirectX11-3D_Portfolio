@@ -9,7 +9,7 @@ namespace ehw
 		Scene_Title();
 		virtual ~Scene_Title();
 
-		void Init(tDesc& _desc) final;
+		void Init() final;
 		void OnEnter() final;
 
 	private:

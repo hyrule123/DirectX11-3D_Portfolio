@@ -69,36 +69,36 @@ namespace ehw
 
 		if (InputManager::GetKeyPress(eKeyCode::W))
 		{
-			vPos.y += TimeManager::DeltaTime() * fSpeed;
+			vPos.y += TimeManager::GetInst().DeltaTime() * fSpeed;
 		}
 
 		if (InputManager::GetKeyPress(eKeyCode::S))
 		{
-			vPos.y -= TimeManager::DeltaTime() * fSpeed;
+			vPos.y -= TimeManager::GetInst().DeltaTime() * fSpeed;
 		}
 
 		if (InputManager::GetKeyPress(eKeyCode::A))
 		{
-			vPos.x -= TimeManager::DeltaTime() * fSpeed;
+			vPos.x -= TimeManager::GetInst().DeltaTime() * fSpeed;
 		}
 
 		if (InputManager::GetKeyPress(eKeyCode::D))
 		{
-			vPos.x += TimeManager::DeltaTime() * fSpeed;
+			vPos.x += TimeManager::GetInst().DeltaTime() * fSpeed;
 		}
 
 
 		if (InputManager::GetKeyPress(eKeyCode::N_1))
 		{
 			float fScale = m_camera->GetScale();
-			fScale += TimeManager::DeltaTime() * 1.f;
+			fScale += TimeManager::GetInst().DeltaTime() * 1.f;
 			m_camera->SetScale(fScale);
 		}
 
 		if (InputManager::GetKeyPress(eKeyCode::N_2))
 		{
 			float fScale = m_camera->GetScale();
-			fScale -= TimeManager::DeltaTime() * 1.f;
+			fScale -= TimeManager::GetInst().DeltaTime() * 1.f;
 			m_camera->SetScale(fScale);
 		}
 
@@ -123,22 +123,22 @@ namespace ehw
 
 		if (InputManager::GetKeyPress(eKeyCode::W))
 		{
-			vPos += TimeManager::DeltaTime() * vFront * fSpeed;
+			vPos += TimeManager::GetInst().DeltaTime() * vFront * fSpeed;
 		}
 
 		if (InputManager::GetKeyPress(eKeyCode::S))
 		{
-			vPos -= TimeManager::DeltaTime() * vFront * fSpeed;
+			vPos -= TimeManager::GetInst().DeltaTime() * vFront * fSpeed;
 		}
 
 		if (InputManager::GetKeyPress(eKeyCode::A))
 		{
-			vPos -= TimeManager::DeltaTime() * vRight * fSpeed;
+			vPos -= TimeManager::GetInst().DeltaTime() * vRight * fSpeed;
 		}
 
 		if (InputManager::GetKeyPress(eKeyCode::D))
 		{
-			vPos += TimeManager::DeltaTime() * vRight * fSpeed;
+			vPos += TimeManager::GetInst().DeltaTime() * vRight * fSpeed;
 		}
 
 
@@ -146,8 +146,8 @@ namespace ehw
 		if (InputManager::GetKeyPress(eKeyCode::RBTN))
 		{
 			float2 vMouseDir = InputManager::GetMouseDir();
-			vRot.y += TimeManager::DeltaTime() * vMouseDir.x;
-			vRot.x -= TimeManager::DeltaTime() * vMouseDir.y;
+			vRot.y += TimeManager::GetInst().DeltaTime() * vMouseDir.x;
+			vRot.x -= TimeManager::GetInst().DeltaTime() * vMouseDir.y;
 		}
 
 		tf->SetLocalPosition(vPos);
