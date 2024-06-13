@@ -132,15 +132,12 @@ namespace ehw
 
 			//material->setDamping(1.f);
 			//material->setFlag(physx::PxMaterialFlag::eDISABLE_FRICTION, true);
-			
 
 			//material->setRestitution(0.f);
 			GetCollisionSystem()->SetCollisionMask(0u, 0u, true);
 			GetCollisionSystem()->SetCollisionMask(0u, 1u, true);
 
-
 			std::unique_ptr<GameObject> col3dA = std::make_unique<GameObject>("Collider 3D-A");
-
 			std::unique_ptr<GameObject> col3dB = std::make_unique<GameObject>("Collider 3D-B");
 
 			col3dA->Transform()->SetLocalPosition(float3(0.f, -100.f, 0.f));
@@ -168,23 +165,18 @@ namespace ehw
 		}
 
 		{
-			
-			//auto houseModel = ResourceManager<Model3D>::Load("Player_Default");
-			//auto house = houseModel->Instantiate();
+			auto model = ResourceManager<Model3D>::GetInst().Load("Player_Default");
+			auto player = model->Instantiate();
 
-			//
+			for (size_t i = 0; i < 10; ++i)
+			{
+				player[i]->AddComponent(strKey::script::Script_Test);
+			}
+			player[11]->AddComponent(strKey::script::Script_Test2);
 
-			////const auto& childs = house->Transform()->GetChilds();
+			int a = 3;
 
-			//for (size_t i = 0; i < 10; ++i)
-			//{
-			//	house[i]->AddComponent(strKey::script::Script_Test);
-			//}
-			//house[11]->AddComponent(strKey::script::Script_Test2);
-
-			//int a = 3;
-
-			//AddGameObjects(house, 0);
+			AddGameObjects(player, 0);
 		}
 
 
