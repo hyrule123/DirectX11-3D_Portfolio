@@ -168,6 +168,8 @@ namespace ehw
 			auto model = ResourceManager<Model3D>::GetInst().Load("Player_Default");
 			auto player = model->Instantiate();
 
+			player[0]->AddScript<Script_Player>();
+
 			for (size_t i = 0; i < 10; ++i)
 			{
 				player[i]->AddComponent(strKey::script::Script_Test);

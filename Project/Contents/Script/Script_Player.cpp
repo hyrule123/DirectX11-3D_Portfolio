@@ -17,9 +17,9 @@ namespace ehw
 	void Script_Player::Init()
 	{
 		GetOwner()->SetName("Player");
-		GetOwner()->GetComponent<Com_Transform>()->SetLocalRotation(Vector3(0.f, -100.f, 750.f));
+		//GetOwner()->GetComponent<Com_Transform>()->SetLocalRotation(Vector3(0.f, -100.f, 750.f));
 		Com_Animator3D* animator = GetOwner()->GetComponent<Com_Animator3D>();
-		animator->Play("Noesis Frames");
+		animator->Play("Take 001");
 		
 		//animator->AddEvent("Evade", 0, std::bind(&Script_Player::TestCallback, this));
 	}
