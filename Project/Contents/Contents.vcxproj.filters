@@ -17,9 +17,6 @@
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
-    <ClCompile Include="Scene_Title.cpp" />
-    <ClCompile Include="ContentsClassInitializer_Scene.cpp" />
-    <ClCompile Include="ContentsClassInitializer_Script.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="Scene_Title.cpp" />
     <ClCompile Include="ContentsClassInitializer_Scene.cpp" />
@@ -51,7 +48,7 @@
     <ClCompile Include="ContentsInitializer_Scene.cpp" />
     <ClCompile Include="ContentsInitializer_Script.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
-    <ClCompile Include="*.cpp" />
+    <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="*.cpp" />
     <ClCompile Include="*.cpp" />
     <ClCompile Include="*.cpp" />
@@ -114,9 +111,6 @@
     <ClCompile Include="Scene_Title.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="UserContentsInitializer_Component.cpp" />
-    <ClCompile Include="UserContentsInitializer_Scene.cpp" />
-    <ClCompile Include="UserContentsInitializer_Script.cpp" />
     <ClCompile Include="Script\Script_Test.cpp" />
     <ClCompile Include="Script\Script_Test2.cpp" />
     <ClCompile Include="ContentsInitializer.cpp" />

@@ -1,10 +1,10 @@
 #pragma once
-#include <Engine/Scene/Component/Script/iScript.h>
+#include <Engine/Scene/Component/Script/Script.h>
 
 namespace ehw
 {
     class Script_Test :
-        public iScript
+        public Script
     {
     public:
         Script_Test();

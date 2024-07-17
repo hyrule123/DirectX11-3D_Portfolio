@@ -13,7 +13,7 @@
 #include <Engine/Scene/Component/Camera/Com_Camera.h>
 #include <Engine/Scene/Component/Renderer/Com_Renderer_Sprite.h>
 #include <Engine/Scene/Component/Script/GridScript.h>
-#include <Engine/Scene/Component/Collider/ICollider2D.h>
+#include <Engine/Scene/Component/Collider/Collider2D.h>
 #include <Engine/Scene/Component/Animator/Com_Animator2D.h>
 #include <Engine/Scene/Component/Light/Com_Light3D.h>
 #include <Engine/Scene/Component/Animator/Com_Animator3D.h>

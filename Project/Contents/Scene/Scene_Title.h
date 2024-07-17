@@ -1,9 +1,9 @@
 #pragma once
-#include <Engine/Scene/iScene.h>
+#include <Engine/Scene/Scene.h>
 
 namespace ehw
 {
-	class Scene_Title : public iScene
+	class Scene_Title : public Scene
 	{
 	public:
 		Scene_Title();
