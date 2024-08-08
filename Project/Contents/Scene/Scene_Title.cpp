@@ -62,7 +62,7 @@ namespace ehw
 
 			cameraObj->AddComponent(strKey::script::Script_CameraMove);
 
-			RenderManager::GetInst().SetMainCamera(cameraComp);
+			RenderManager::GetInst().sceneRenderAgent().SetMainCamera(cameraComp);
 
 
 			AddGameObject(cameraObj, 0u);
