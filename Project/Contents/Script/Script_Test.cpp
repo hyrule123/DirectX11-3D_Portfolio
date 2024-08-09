@@ -18,7 +18,7 @@ namespace ehw
 	{
 		if (InputManager::GetKeyDown(eKeyCode::X))
 		{
-			GetOwner()->Destroy();
+			gameObject()->Destroy();
 		}
 	}
 }

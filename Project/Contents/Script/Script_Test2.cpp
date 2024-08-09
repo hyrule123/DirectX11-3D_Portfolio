@@ -16,7 +16,7 @@ namespace ehw
 	{
 		if (InputManager::GetKeyDown(eKeyCode::I))
 		{
-			const auto& childs = GetOwner()->Transform()->GetChilds();
+			const auto& childs = gameObject()->Transform()->GetChilds();
 
 			DEBUG_BREAK;
 		}

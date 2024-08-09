@@ -29,7 +29,7 @@ namespace ehw
 	void Script_CameraMove::Awake()
 	{
 
-		m_camera = GetOwner()->GetComponent<Com_Camera>();
+		m_camera = gameObject()->GetComponent<Com_Camera>();
 	}
 
 	void Script_CameraMove::Update()
@@ -56,7 +56,7 @@ namespace ehw
 
 	void Script_CameraMove::Camera2DMove()
 	{
-		Com_Transform* tf = GetOwner()->GetComponent<Com_Transform>();
+		Com_Transform* tf = gameObject()->GetComponent<Com_Transform>();
 
 		// 키 입력에 따른 카메라 이동
 		float3 vPos = tf->GetLocalPosition();
@@ -107,7 +107,7 @@ namespace ehw
 
 	void Script_CameraMove::Camera3DMove()
 	{
-		Com_Transform* tf = GetOwner()->GetComponent<Com_Transform>();
+		Com_Transform* tf = gameObject()->GetComponent<Com_Transform>();
 
 		float3 vPos = tf->GetLocalPosition();
 		float3 vRot = tf->GetLocalRotation().ToEuler();

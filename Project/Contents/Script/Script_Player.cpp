@@ -16,9 +16,9 @@ namespace ehw
 {
 	void Script_Player::Init()
 	{
-		GetOwner()->SetName("Player");
+		gameObject()->SetName("Player");
 		//GetOwner()->GetComponent<Com_Transform>()->SetLocalRotation(Vector3(0.f, -100.f, 750.f));
-		Com_Animator3D* animator = GetOwner()->GetComponent<Com_Animator3D>();
+		Com_Animator3D* animator = gameObject()->GetComponent<Com_Animator3D>();
 		animator->Play("Take 001");
 		
 		//animator->AddEvent("Evade", 0, std::bind(&Script_Player::TestCallback, this));
@@ -26,7 +26,7 @@ namespace ehw
 
 	void Script_Player::Awake()
 	{
-		Com_Animator3D* animator = GetOwner()->GetComponent<Com_Animator3D>();
+		Com_Animator3D* animator = gameObject()->GetComponent<Com_Animator3D>();
 		if (animator)
 		{
 			//5animator->AddEvent()
@@ -37,7 +37,7 @@ namespace ehw
 	{
 		if (InputManager::GetKeyDown(eKeyCode::P))
 		{
-			Com_Animator3D* animator = GetOwner()->GetComponent<Com_Animator3D>();
+			Com_Animator3D* animator = gameObject()->GetComponent<Com_Animator3D>();
 			if (animator)
 			{
 				animator->PlayNext();
