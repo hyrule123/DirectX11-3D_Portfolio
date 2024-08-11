@@ -1,4 +1,4 @@
-#include "Engine/DefaultShader/Common.hlsli"
+#include "Engine/DefaultShader/Common_define.hlsli"
 
 float4 main( float4 pos : POSITION ) : SV_POSITION
 {

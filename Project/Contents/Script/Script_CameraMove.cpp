@@ -16,11 +16,9 @@ namespace ehw
 	{
 	}
 
-
 	Script_CameraMove::Script_CameraMove(const Script_CameraMove& _other)
 	{
 	}
-
 
 	Script_CameraMove::~Script_CameraMove()
 	{
@@ -52,7 +50,6 @@ namespace ehw
 			break;
 		}
 	}
-
 
 	void Script_CameraMove::Camera2DMove()
 	{
