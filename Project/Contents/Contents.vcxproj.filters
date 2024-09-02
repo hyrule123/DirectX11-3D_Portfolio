@@ -18,9 +18,6 @@
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
-    <ClCompile Include="Scene_Title.cpp" />
-    <ClCompile Include="ContentsClassInitializer_Scene.cpp" />
-    <ClCompile Include="ContentsClassInitializer_Script.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="Scene_Title.cpp" />
     <ClCompile Include="ContentsClassInitializer_Scene.cpp" />
@@ -40,16 +37,13 @@
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
-    <ClCompile Include="ContentsInitializer_Component.cpp" />
-    <ClCompile Include="ContentsInitializer_Scene.cpp" />
-    <ClCompile Include="ContentsInitializer_Script.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="ContentsInitializer_Component.cpp" />
     <ClCompile Include="ContentsInitializer_Scene.cpp" />
     <ClCompile Include="ContentsInitializer_Script.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="PCH_Contents.cpp" />
-    <ClCompile Include="*.cpp" />
+    <ClCompile Include="PCH_Contents.cpp" />
     <ClCompile Include="*.cpp" />
     <ClCompile Include="*.cpp" />
     <ClCompile Include="*.cpp" />
@@ -113,7 +107,6 @@
     </ClCompile>
     <ClCompile Include="Script\Script_Test.cpp" />
     <ClCompile Include="Script\Script_Test2.cpp" />
-    <ClCompile Include="ContentsInitializer.cpp" />
     <ClCompile Include="ContentsInitializer_Component.cpp" />
     <ClCompile Include="ContentsInitializer_Scene.cpp" />
     <ClCompile Include="ContentsInitializer_Script.cpp" />
@@ -126,15 +119,6 @@
     <ClCompile Include="ContentsInitializer_Script.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="strKey_Scene.h">
-      <Filter>Auto Generated</Filter>
-    </ClInclude>
-    <ClInclude Include="strKey_Script.h">
-      <Filter>Auto Generated</Filter>
-    </ClInclude>
-    <ClInclude Include="strKey_Shader.h">
-      <Filter>Auto Generated</Filter>
-    </ClInclude>
     <ClInclude Include="Scene\Scene_Title.h">
       <Filter>Scene</Filter>
     </ClInclude>
@@ -144,10 +128,8 @@
     <ClInclude Include="Script\Script_Player.h">
       <Filter>Script</Filter>
     </ClInclude>
-    <ClInclude Include="strKey_UserComponent.h" />
     <ClInclude Include="Script\Script_Test.h" />
     <ClInclude Include="Script\Script_Test2.h" />
-    <ClInclude Include="ContentsInitializer.h" />
     <ClInclude Include="define_Contents.h" />
     <ClInclude Include="PCH_Contents.h" />
   </ItemGroup>

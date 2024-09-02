@@ -1,7 +1,6 @@
 #include "PCH_Client.h"
 
 #include <Base/Engine/EngineMain.h>
-#include <Contents/ContentsInitializer.h>
 
 #ifdef EDITOR_INCLUDED
 #include <Editor/EditorManager.h>
@@ -28,8 +27,6 @@ BOOL APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     Desc.Height = 720;
 
     Desc.WindowIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ICON1));
-
-    Desc.ExternalInitFuncs.push_back(ehw::ContentsInitializer::Init);
 
     Desc.GPUDesc.ResolutionX = (UINT)Desc.Width;
     Desc.GPUDesc.ResolutionY = (UINT)Desc.Height;

@@ -1,9 +1,9 @@
 
 #include "Script_CameraMove.h"
 
-#include <Engine/Scene/GameObject.h>
-#include <Engine/Scene/Component/Camera/Com_Camera.h>
-#include <Engine/Scene/Component/Transform/Com_Transform.h>
+#include <Engine/Game/GameObject.h>
+#include <Engine/Game/Component/Camera/Com_Camera.h>
+#include <Engine/Game/Component/Com_Transform.h>
 #include <Engine/Manager/InputManager.h>
 #include <Engine/Manager/TimeManager.h>
 
@@ -11,12 +11,14 @@
 namespace ehw
 {
 	Script_CameraMove::Script_CameraMove()
-		: m_camera()
+		: Script(INSTANCE_ABLE(Script_CameraMove))
+		, m_camera()
 		, mCamSpeed(100.f)
 	{
 	}
 
 	Script_CameraMove::Script_CameraMove(const Script_CameraMove& _other)
+		: Script(_other)
 	{
 	}
 

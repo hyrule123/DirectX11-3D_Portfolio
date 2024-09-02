@@ -1,5 +1,5 @@
 #pragma once
-#include <Engine/Scene/Component/Script/Script.h>
+#include <Engine/Game/Component/Script/Script.h>
 
 namespace ehw
 {
@@ -12,6 +12,7 @@ namespace ehw
 
         virtual void Update() override;
     };
+    
 }
 
 

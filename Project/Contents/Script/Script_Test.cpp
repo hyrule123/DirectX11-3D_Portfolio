@@ -2,12 +2,13 @@
 
 #include <Engine/Manager/InputManager.h>
 
-#include <Engine/Scene/GameObject.h>
+#include <Engine/Game/GameObject.h>
 
 
 namespace ehw
 {
 	Script_Test::Script_Test()
+		: Script(INSTANCE_ABLE(Script_Test))
 	{
 	}
 

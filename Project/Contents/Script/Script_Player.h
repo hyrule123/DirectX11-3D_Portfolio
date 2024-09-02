@@ -1,5 +1,5 @@
 #pragma once
-#include <Engine/Scene/Component/Script/Script.h>
+#include <Engine/Game/Component/Script/Script.h>
 
 namespace ehw
 {
@@ -7,8 +7,8 @@ namespace ehw
         public Script
     {
     public:
-        Script_Player() {};
-        virtual ~Script_Player() {};
+        Script_Player();
+        virtual ~Script_Player();
 
         virtual void Init() override;
         virtual void Awake() override;

@@ -142,8 +142,8 @@ start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene 
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
-      <Command>cd $(SolutionDir)
-start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene Shader</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -168,7 +168,6 @@ start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene 
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ContentsInitializer.h" />
     <ClInclude Include="define_Contents.h" />
     <ClInclude Include="PCH_Contents.h" />
     <ClInclude Include="Scene\Scene_Title.h" />
@@ -176,16 +175,8 @@ start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene 
     <ClInclude Include="Script\Script_Player.h" />
     <ClInclude Include="Script\Script_Test.h" />
     <ClInclude Include="Script\Script_Test2.h" />
-    <ClInclude Include="strKey_Scene.h" />
-    <ClInclude Include="strKey_Script.h" />
-    <ClInclude Include="strKey_Shader.h" />
-    <ClInclude Include="strKey_UserComponent.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ContentsInitializer.cpp" />
-    <ClCompile Include="ContentsInitializer_Component.cpp" />
-    <ClCompile Include="ContentsInitializer_Scene.cpp" />
-    <ClCompile Include="ContentsInitializer_Script.cpp" />
     <ClCompile Include="PCH_Contents.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

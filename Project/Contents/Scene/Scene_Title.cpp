@@ -4,41 +4,39 @@
 #include <Engine/Manager/RenderManager.h>
 #include <Engine/Manager/InputManager.h>
 
-#include <Engine/Scene/GameObject.h>
-#include <Engine/Scene/Collision/CollisionSystem.h>
-#include <Engine/Scene/Collision/Collision3D.h>
+#include <Engine/Game/GameObject.h>
+#include <Engine/Game/Collision/CollisionSystem.h>
+#include <Engine/Game/Collision/Collision3D.h>
 
-#include <Engine/Scene/Component/Transform/Com_Transform.h>
-#include <Engine/Scene/Component/Renderer/Com_Renderer_Mesh.h>
-#include <Engine/Scene/Component/Camera/Com_Camera.h>
-#include <Engine/Scene/Component/Renderer/Com_Renderer_Sprite.h>
-#include <Engine/Scene/Component/Script/GridScript.h>
-#include <Engine/Scene/Component/Collider/Collider2D.h>
-#include <Engine/Scene/Component/Animator/Com_Animator2D.h>
-#include <Engine/Scene/Component/Light/Com_Light3D.h>
-#include <Engine/Scene/Component/Animator/Com_Animator3D.h>
-#include <Engine/Scene/Component/Renderer/Com_Renderer_ParticleSystem.h>
-#include <Engine/Scene/Component/Renderer/Com_Renderer_UIBase.h>
-#include <Engine/Scene/Component/Collider/Com_Collider3D_Cube.h>
-#include <Engine/Scene/Component/Rigidbody/Com_Rigidbody_Dynamic.h>
-#include <Engine/Scene/Component/Rigidbody/Com_Rigidbody_Static.h>
-
+#include <Engine/Game/Component/Com_Transform.h>
+#include <Engine/Game/Component/Renderer/Com_Renderer_Mesh.h>
+#include <Engine/Game/Component/Camera/Com_Camera.h>
+#include <Engine/Game/Component/Renderer/Com_Renderer_Sprite.h>
+#include <Engine/Game/Component/Script/GridScript.h>
+#include <Engine/Game/Component/Collider/Collider2D.h>
+#include <Engine/Game/Component/Animator/Com_Animator2D.h>
+#include <Engine/Game/Component/Light/Com_Light3D.h>
+#include <Engine/Game/Component/Animator/Com_Animator3D.h>
+#include <Engine/Game/Component/Renderer/Com_Renderer_ParticleSystem.h>
+#include <Engine/Game/Component/Renderer/Com_Renderer_UIBase.h>
+#include <Engine/Game/Component/Collider/Com_Collider3D_Cube.h>
+#include <Engine/Game/Component/Rigidbody/Com_Rigidbody_Dynamic.h>
+#include <Engine/Game/Component/Rigidbody/Com_Rigidbody_Static.h>
 
 
 #include <Engine/Resource/Prefab.h>
 #include <Engine/Resource/Model3D/Model3D.h>
 #include <Engine/Resource/Texture.h>
 
-
-
-#include "Contents/strKey_Script.h"
 #include "Contents/Script/Script_Player.h"
+#include "Contents/Script/Script_CameraMove.h"
 
 #include <iostream>
 
 namespace ehw
 {
 	Scene_Title::Scene_Title()
+		: Scene(INSTANCE_ABLE(Scene_Title))
 	{
 	}
 	Scene_Title::~Scene_Title()
@@ -60,7 +58,7 @@ namespace ehw
 			Com_Camera* cameraComp = cameraObj->AddComponent<Com_Camera>();
 			cameraComp->SetProjectionType(eProjectionType::Perspective);
 
-			cameraObj->AddComponent(strKey::script::Script_CameraMove);
+			cameraObj->AddComponent("Script_CameraMove");
 
 			RenderManager::GetInst().sceneRenderAgent().SetMainCamera(cameraComp);
 
@@ -172,9 +170,9 @@ namespace ehw
 
 			for (size_t i = 0; i < 10; ++i)
 			{
-				player[i]->AddComponent(strKey::script::Script_Test);
+				player[i]->AddComponent("Script_Test");
 			}
-			player[11]->AddComponent(strKey::script::Script_Test2);
+			player[11]->AddComponent("Script_Test2");
 
 			int a = 3;
 

@@ -2,18 +2,25 @@
 
 
 #include <Engine/Resource/Model3D/Animation3D.h>
-#include <Engine/Scene/Component/Animator/Com_Animator3D.h>
-#include <Engine/Scene/GameObject.h>
+#include <Engine/Game/Component/Animator/Com_Animator3D.h>
+#include <Engine/Game/GameObject.h>
 #include <Engine/Manager/InputManager.h>
 #include <Engine/Resource/Model3D/Model3D.h>
 #include <Engine/Manager/ResourceManager.h>
 
-#include <Engine/Scene/Component/Transform/Com_Transform.h>
+#include <Engine/Game/Component/Com_Transform.h>
 
 #include "Contents/define_Contents.h"
 
 namespace ehw
 {
+	Script_Player::Script_Player()
+		: Script(INSTANCE_ABLE(Script_Player))
+	{
+	}
+	Script_Player::~Script_Player()
+	{
+	}
 	void Script_Player::Init()
 	{
 		gameObject()->SetName("Player");
