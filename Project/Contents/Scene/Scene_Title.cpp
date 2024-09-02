@@ -36,7 +36,9 @@
 namespace ehw
 {
 	Scene_Title::Scene_Title()
-		: Scene(INSTANCE_ABLE(Scene_Title))
+		: Scene(
+			INSTANCE_ABLE(Scene_Title)
+		)
 	{
 	}
 	Scene_Title::~Scene_Title()

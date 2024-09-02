@@ -6,6 +6,8 @@
 #include <Editor/EditorManager.h>
 #endif
 
+#include <Contents/ContentsInitializer.h>
+
 ehw::tDesc_EngineMain Desc{};
 
 inline void DebugCheck(long _block);
@@ -31,6 +33,8 @@ BOOL APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     Desc.GPUDesc.ResolutionX = (UINT)Desc.Width;
     Desc.GPUDesc.ResolutionY = (UINT)Desc.Height;
     Desc.GPUDesc.RefreshRate = (UINT)60u;
+
+    Desc.ExternalInitFuncs.push_back(ContentsInitializer::init);
 
 #ifdef EDITOR_INCLUDED
     Desc.EditorRunFunction = ehw::editor::EditorManager::GetEditorRunFunction();
