@@ -6,6 +6,8 @@ namespace ehw
     class Script_Player :
         public Script
     {
+        REGISTER_CLASS_INFO(Script_Player);
+        SET_INSTANCE_ABLE(Script_Player);
     public:
         Script_Player();
         virtual ~Script_Player();

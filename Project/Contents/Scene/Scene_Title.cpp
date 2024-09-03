@@ -8,6 +8,7 @@
 #include <Engine/Game/Collision/CollisionSystem.h>
 #include <Engine/Game/Collision/Collision3D.h>
 
+#include <Engine/Game/Component/iComponent.h>
 #include <Engine/Game/Component/Com_Transform.h>
 #include <Engine/Game/Component/Renderer/Com_Renderer_Mesh.h>
 #include <Engine/Game/Component/Camera/Com_Camera.h>
@@ -36,9 +37,7 @@
 namespace ehw
 {
 	Scene_Title::Scene_Title()
-		: Scene(
-			INSTANCE_ABLE(Scene_Title)
-		)
+		: Scene(ClassInfo<Scene_Title>::name())
 	{
 	}
 	Scene_Title::~Scene_Title()

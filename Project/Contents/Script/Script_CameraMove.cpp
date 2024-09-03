@@ -11,7 +11,7 @@
 namespace ehw
 {
 	Script_CameraMove::Script_CameraMove()
-		: Script(INSTANCE_ABLE(Script_CameraMove))
+		: Script(ClassInfo<Script_CameraMove>::name())
 		, m_camera()
 		, mCamSpeed(100.f)
 	{

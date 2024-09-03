@@ -15,7 +15,7 @@
 namespace ehw
 {
 	Script_Player::Script_Player()
-		: Script(INSTANCE_ABLE(Script_Player))
+		: Script(ClassInfo<Script_Player>::name())
 	{
 	}
 	Script_Player::~Script_Player()

@@ -7,7 +7,7 @@
 namespace ehw
 {
 	Script_Test2::Script_Test2()
-		: Script(INSTANCE_ABLE(Script_Test2))
+		: Script(ClassInfo<Script_Test2>::name())
 	{
 	}
 

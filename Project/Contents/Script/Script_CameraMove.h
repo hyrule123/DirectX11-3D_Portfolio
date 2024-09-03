@@ -7,9 +7,10 @@ namespace ehw
 	class Script_CameraMove :
 		public Script
 	{
+		REGISTER_CLASS_INFO(Script_CameraMove);
+		SET_INSTANCE_ABLE(Script_CameraMove);
 	public:
 		Script_CameraMove();
-
 		Script_CameraMove(const Script_CameraMove& _other);
 		CLONE_ABLE(Script_CameraMove);
 
