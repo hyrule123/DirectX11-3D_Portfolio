@@ -3,7 +3,7 @@
 
 #include <Engine/Game/GameObject.h>
 #include <Engine/Game/Component/Camera/Com_Camera.h>
-#include <Engine/Game/Component/Com_Transform.h>
+#include <Engine/Game/Component/Transform.h>
 #include <Engine/Manager/InputManager.h>
 #include <Engine/Manager/TimeManager.h>
 
@@ -11,7 +11,7 @@
 namespace ehw
 {
 	Script_CameraMove::Script_CameraMove()
-		: Script(ClassInfo<Script_CameraMove>::name())
+		: Script(Script_CameraMove::concrete_name)
 		, m_camera()
 		, mCamSpeed(100.f)
 	{
@@ -55,10 +55,10 @@ namespace ehw
 
 	void Script_CameraMove::Camera2DMove()
 	{
-		Com_Transform* tf = gameObject()->GetComponent<Com_Transform>();
+		Transform* tf = gameObject()->GetComponent<Transform>();
 
 		// 키 입력에 따른 카메라 이동
-		float3 vPos = tf->GetLocalPosition();
+		float3 vPos = tf->get_local_position();
 
 		float fSpeed = mCamSpeed;
 		if (InputManager::GetKeyPress(eKeyCode::LSHIFT))
@@ -101,19 +101,19 @@ namespace ehw
 			m_camera->SetScale(fScale);
 		}
 
-		tf->SetLocalPosition(vPos);
+		tf->set_local_position(vPos);
 	}
 
 	void Script_CameraMove::Camera3DMove()
 	{
-		Com_Transform* tf = gameObject()->GetComponent<Com_Transform>();
+		Transform* tf = gameObject()->GetComponent<Transform>();
 
-		float3 vPos = tf->GetLocalPosition();
-		float3 vRot = tf->GetLocalRotation().ToEuler();
+		float3 vPos = tf->get_local_position();
+		float3 vRot = tf->get_local_rotation().ToEuler();
 
-		float3 vFront = tf->GetLocalDirection(eDirection::Forward);
-		float3 vUp = tf->GetLocalDirection(eDirection::Up);
-		float3 vRight = tf->GetLocalDirection(eDirection::Right);
+		float3 vFront = tf->get_local_direction(eDirection::Forward);
+		float3 vUp = tf->get_local_direction(eDirection::Up);
+		float3 vRight = tf->get_local_direction(eDirection::Right);
 
 		float fSpeed = mCamSpeed;
 
@@ -149,8 +149,8 @@ namespace ehw
 			vRot.x -= TimeManager::GetInst().DeltaTime() * vMouseDir.y;
 		}
 
-		tf->SetLocalPosition(vPos);
-		tf->SetLocalRotation(vRot);
+		tf->set_local_position(vPos);
+		tf->set_local_rotation(vRot);
 	}
 }
 

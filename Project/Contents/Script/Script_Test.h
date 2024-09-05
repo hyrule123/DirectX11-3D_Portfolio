@@ -6,7 +6,7 @@ namespace ehw
     class Script_Test :
         public Script
     {
-        REGISTER_CLASS_INSTANCE_ABLE(Script_Test);
+        CLASS_NAME(Script_Test);
         
     public:
         Script_Test();

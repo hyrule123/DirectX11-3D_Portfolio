@@ -2,12 +2,12 @@
 
 #include <Engine/Manager/InputManager.h>
 #include <Engine/Game/GameObject.h>
-#include <Engine/Game/Component/Com_Transform.h>
+#include <Engine/Game/Component/Transform.h>
 
 namespace ehw
 {
 	Script_Test2::Script_Test2()
-		: Script(ClassInfo<Script_Test2>::name())
+		: Script(Script_Test2::concrete_name)
 	{
 	}
 
@@ -18,7 +18,7 @@ namespace ehw
 	{
 		if (InputManager::GetKeyDown(eKeyCode::I))
 		{
-			const auto& childs = gameObject()->Transform()->GetChilds();
+			const auto& childs = gameObject()->transform()->get_childs();
 
 			DEBUG_BREAK;
 		}

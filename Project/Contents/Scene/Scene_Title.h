@@ -5,7 +5,8 @@ namespace ehw
 {
 	class Scene_Title : public Scene
 	{
-		REGISTER_CLASS_INSTANCE_ABLE(Scene_Title);
+		CLASS_NAME(Scene_Title);
+		REGISTER_INSTANCE_DEFAULT(Scene_Title);
 		
 	public:
 		Scene_Title();

@@ -9,7 +9,7 @@
 #include <Engine/Game/Collision/Collision3D.h>
 
 #include <Engine/Game/Component/iComponent.h>
-#include <Engine/Game/Component/Com_Transform.h>
+#include <Engine/Game/Component/Transform.h>
 #include <Engine/Game/Component/Renderer/Com_Renderer_Mesh.h>
 #include <Engine/Game/Component/Camera/Com_Camera.h>
 #include <Engine/Game/Component/Renderer/Com_Renderer_Sprite.h>
@@ -21,6 +21,7 @@
 #include <Engine/Game/Component/Renderer/Com_Renderer_ParticleSystem.h>
 #include <Engine/Game/Component/Renderer/Com_Renderer_UIBase.h>
 #include <Engine/Game/Component/Collider/Com_Collider3D_Cube.h>
+#include <Engine/Game/Component/Collider/Com_Collider3D_Sphere.h>
 #include <Engine/Game/Component/Rigidbody/Com_Rigidbody_Dynamic.h>
 #include <Engine/Game/Component/Rigidbody/Com_Rigidbody_Static.h>
 
@@ -37,7 +38,7 @@
 namespace ehw
 {
 	Scene_Title::Scene_Title()
-		: Scene(ClassInfo<Scene_Title>::name())
+		: Scene(Scene_Title::concrete_name)
 	{
 	}
 	Scene_Title::~Scene_Title()
@@ -53,8 +54,8 @@ namespace ehw
 			std::unique_ptr<GameObject> cameraObj = std::make_unique<GameObject>();
 			cameraObj->SetName("MainCamera");
 
-			Com_Transform* tr = cameraObj->Transform();
-			tr->SetLocalPosition(float3(0.0f, 0.0f, -500.0f));
+			Transform* tr = cameraObj->transform();
+			tr->set_local_position(float3(0.0f, 0.0f, -500.0f));
 
 			Com_Camera* cameraComp = cameraObj->AddComponent<Com_Camera>();
 			cameraComp->SetProjectionType(eProjectionType::Perspective);
@@ -69,7 +70,7 @@ namespace ehw
 
 		{
 			std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
-			//dirLight->AddComponent<Com_Transform>();
+			//dirLight->AddComponent<Transform>();
 
 			Com_Light3D* light3d = dirLight->AddComponent<Com_Light3D>();
 			light3d->SetLightType(eLightType::Directional);
@@ -81,7 +82,7 @@ namespace ehw
 
 		{
 			std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
-			//dirLight->AddComponent<Com_Transform>();
+			//dirLight->AddComponent<Transform>();
 			dirLight->SetName("Point1000");
 
 			Com_Light3D* light3d = dirLight->AddComponent<Com_Light3D>();
@@ -93,7 +94,7 @@ namespace ehw
 
 		{
 			std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
-			//dirLight->AddComponent<Com_Transform>();
+			//dirLight->AddComponent<Transform>();
 			dirLight->SetName("Point500");
 
 			Com_Light3D* light3d = dirLight->AddComponent<Com_Light3D>();
@@ -114,9 +115,9 @@ namespace ehw
 			std::unique_ptr<GameObject> colB = std::make_unique<GameObject>("Collider B");
 
 			colA->AddComponent(strKey::component::Com_Collider2D_AABB);
-			colA->Transform()->SetLocalPosition(float3(-50.f, 0.f, 0.f));
+			colA->transform()->set_local_position(float3(-50.f, 0.f, 0.f));
 			colB->AddComponent(strKey::component::Com_Collider2D_AABB);
-			colB->Transform()->SetLocalPosition(float3(0.f, 50.f, 0.f));
+			colB->transform()->set_local_position(float3(0.f, 50.f, 0.f));
 
 			AddGameObject(colA, 0u);
 			AddGameObject(colB, 1u);
@@ -127,7 +128,7 @@ namespace ehw
 			physx::PxMaterial* material = GetCollisionSystem()->GetCollision3D()->GetDefaultPxMaterial();
 			//material->setStaticFriction(0.f);
 			//material->setDynamicFriction(0.5f);
-			material->setRestitution(0.f);
+			//material->setRestitution(0.f);
 
 			//material->setDamping(1.f);
 			//material->setFlag(physx::PxMaterialFlag::eDISABLE_FRICTION, true);
@@ -139,11 +140,11 @@ namespace ehw
 			std::unique_ptr<GameObject> col3dA = std::make_unique<GameObject>("Collider 3D-A");
 			std::unique_ptr<GameObject> col3dB = std::make_unique<GameObject>("Collider 3D-B");
 
-			col3dA->Transform()->SetLocalPosition(float3(0.f, -100.f, 0.f));
-			col3dA->Transform()->SetLocalScale(float3(500.f, 100.f, 500.f));
+			col3dA->transform()->set_local_position(float3(0.f, -100.f, 0.f));
+			col3dA->transform()->set_local_scale(float3(500.f, 100.f, 500.f));
 
-			col3dB->Transform()->SetLocalPosition(float3(0.f, 100.f, 0.f));
-			col3dB->Transform()->SetLocalScale(float3(100.f, 100.f, 100.f));
+			col3dB->transform()->set_local_position(float3(0.f, 100.f, 0.f));
+			col3dB->transform()->set_local_scale(float3(100.f, 100.f, 100.f));
 
 			Com_Collider3D_Cube* colA = col3dA->AddComponent<Com_Collider3D_Cube>();
 			Com_Collider3D_Cube* colB = col3dB->AddComponent<Com_Collider3D_Cube>();
@@ -151,7 +152,7 @@ namespace ehw
 			Com_Rigidbody_Dynamic* rigidDynamic = col3dB->AddComponent<Com_Rigidbody_Dynamic>();
 
 			//rigidDynamic->SetDensity(10.f);
-			rigidDynamic->SetMass(50000.f);
+			rigidDynamic->SetMass(1000.f);
 			rigidDynamic->EnableGravity(true);
 			//rigidDynamic->SetRigidDynamicLockFlag(physx::PxRigidDynamicLockFlag::eLOCK_ANGULAR_X, true);
 			//rigidDynamic->SetRigidDynamicLockFlag(physx::PxRigidDynamicLockFlag::eLOCK_LINEAR_X, true);

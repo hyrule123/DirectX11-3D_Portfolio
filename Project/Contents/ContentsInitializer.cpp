@@ -1,7 +1,7 @@
 #include "ContentsInitializer.h"
 
 #include <Engine/Manager/SceneManager.h>
-#include <Engine/ClassInfo.h>
+#include <Engine/Entity.h>
 
 #include "Contents/Scene/Scene_Title.h"
 

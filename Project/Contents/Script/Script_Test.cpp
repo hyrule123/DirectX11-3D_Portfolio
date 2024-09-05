@@ -8,7 +8,7 @@
 namespace ehw
 {
 	Script_Test::Script_Test()
-		: Script(ClassInfo<Script_Test>::name())
+		: Script(Script_Test::concrete_name)
 	{
 	}
 

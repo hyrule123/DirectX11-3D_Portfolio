@@ -8,14 +8,14 @@
 #include <Engine/Resource/Model3D/Model3D.h>
 #include <Engine/Manager/ResourceManager.h>
 
-#include <Engine/Game/Component/Com_Transform.h>
+#include <Engine/Game/Component/Transform.h>
 
 #include "Contents/define_Contents.h"
 
 namespace ehw
 {
 	Script_Player::Script_Player()
-		: Script(ClassInfo<Script_Player>::name())
+		: Script(Script_Player::concrete_name)
 	{
 	}
 	Script_Player::~Script_Player()
@@ -24,7 +24,7 @@ namespace ehw
 	void Script_Player::Init()
 	{
 		gameObject()->SetName("Player");
-		//GetOwner()->GetComponent<Com_Transform>()->SetLocalRotation(Vector3(0.f, -100.f, 750.f));
+		//GetOwner()->GetComponent<Transform>()->set_local_rotation(Vector3(0.f, -100.f, 750.f));
 		Com_Animator3D* animator = gameObject()->GetComponent<Com_Animator3D>();
 		animator->Play("Take 001");
 		
