@@ -69,27 +69,31 @@ namespace ehw
 		}
 
 		{
-			std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
-			//dirLight->AddComponent<Transform>();
+			//std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
+			////dirLight->AddComponent<Transform>();
 
-			Com_Light3D* light3d = dirLight->AddComponent<Com_Light3D>();
-			light3d->SetLightType(eLightType::Directional);
-			light3d->SetDiffuse(float4(0.3f, 0.3f, 0.3f, 1.f));
-			light3d->SetAmbient(float4(0.3f, 0.3f, 0.3f, 1.f));
+			//Com_Light3D* light3d = dirLight->AddComponent<Com_Light3D>();
+			//light3d->SetLightType(eLightType::Directional);
+			//light3d->SetDiffuse(float4(0.3f, 0.3f, 0.3f, 1.f));
+			//light3d->SetAmbient(float4(0.3f, 0.3f, 0.3f, 1.f));
 
-			AddGameObject(dirLight, 0u);
+			//AddGameObject(dirLight, 0u);
 		}
 
 		{
 			std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
-			//dirLight->AddComponent<Transform>();
+			
 			dirLight->SetName("Point1000");
+
+			dirLight->GetComponent<Transform>()->set_world_position(float3(100.f, 500.f, 100.f));
 
 			Com_Light3D* light3d = dirLight->AddComponent<Com_Light3D>();
 			light3d->SetLightType(eLightType::Point);
-			light3d->SetRadius(1000.f);
-			light3d->SetDiffuse(float4(0.3f, 0.3f, 0.3f, 1.f));
-			light3d->SetAmbient(float4(0.3f, 0.3f, 0.3f, 1.f));
+			light3d->SetRadius(700.f);
+			light3d->SetDiffuse(float4(0.7f, 0.7f, 0.7f, 1.f));
+			light3d->SetAmbient(float4(0.7f, 0.7f, 0.7f, 1.f));
+
+			AddGameObject(dirLight, 0);
 		}
 
 		{
@@ -99,11 +103,11 @@ namespace ehw
 
 			Com_Light3D* light3d = dirLight->AddComponent<Com_Light3D>();
 			light3d->SetLightType(eLightType::Point);
-			light3d->SetRadius(500.f);
+			light3d->SetRadius(200.f);
 
 			light3d->SetDiffuse(float4(0.7f, 0.7f, 0.7f, 1.f));
 
-			light3d->SetAmbient(float4(0.3f, 0.3f, 0.3f, 1.f));
+			light3d->SetAmbient(float4(0.7f, 0.7f, 0.7f, 1.f));
 
 			AddGameObject(dirLight, 0u);
 		}
@@ -175,8 +179,6 @@ namespace ehw
 				player[i]->AddComponent("Script_Test");
 			}
 			player[11]->AddComponent("Script_Test2");
-
-			int a = 3;
 
 			AddGameObjects(player, 0);
 		}
