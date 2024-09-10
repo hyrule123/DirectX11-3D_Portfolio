@@ -16,7 +16,7 @@
 #include <Engine/Game/Component/Script/GridScript.h>
 #include <Engine/Game/Component/Collider/Collider2D.h>
 #include <Engine/Game/Component/Animator/Com_Animator2D.h>
-#include <Engine/Game/Component/Light/Com_Light3D.h>
+#include <Engine/Game/Component/Light/Light_3D.h>
 #include <Engine/Game/Component/Animator/Com_Animator3D.h>
 #include <Engine/Game/Component/Renderer/Com_Renderer_ParticleSystem.h>
 #include <Engine/Game/Component/Renderer/Com_Renderer_UIBase.h>
@@ -72,7 +72,7 @@ namespace ehw
 			//std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
 			////dirLight->AddComponent<Transform>();
 
-			//Com_Light3D* light3d = dirLight->AddComponent<Com_Light3D>();
+			//Light_3D* light3d = dirLight->AddComponent<Light_3D>();
 			//light3d->SetLightType(eLightType::Directional);
 			//light3d->SetDiffuse(float4(0.3f, 0.3f, 0.3f, 1.f));
 			//light3d->SetAmbient(float4(0.3f, 0.3f, 0.3f, 1.f));
@@ -87,7 +87,7 @@ namespace ehw
 
 			dirLight->GetComponent<Transform>()->set_world_position(float3(100.f, 500.f, 100.f));
 
-			Com_Light3D* light3d = dirLight->AddComponent<Com_Light3D>();
+			Light_3D* light3d = dirLight->AddComponent<Light_3D>();
 			light3d->SetLightType(eLightType::Point);
 			light3d->SetRadius(700.f);
 			light3d->SetDiffuse(float4(0.7f, 0.7f, 0.7f, 1.f));
@@ -101,7 +101,7 @@ namespace ehw
 			//dirLight->AddComponent<Transform>();
 			dirLight->SetName("Point500");
 
-			Com_Light3D* light3d = dirLight->AddComponent<Com_Light3D>();
+			Light_3D* light3d = dirLight->AddComponent<Light_3D>();
 			light3d->SetLightType(eLightType::Point);
 			light3d->SetRadius(200.f);
 
@@ -169,7 +169,7 @@ namespace ehw
 		}
 
 		{
-			auto model = ResourceManager<Model3D>::GetInst().Load("Player_Default");
+			auto model = ResourceManager<Model3D>::GetInst().load("Player_Default");
 			auto player = model->Instantiate();
 
 			player[0]->AddScript<Script_Player>();
