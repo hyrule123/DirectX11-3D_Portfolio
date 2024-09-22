@@ -12,7 +12,7 @@ namespace ehw
 		Scene_Title();
 		virtual ~Scene_Title();
 
-		void Init() final;
+		void init() final;
 		void OnEnter() final;
 
 	private:

@@ -38,13 +38,13 @@
 namespace ehw
 {
 	Scene_Title::Scene_Title()
-		: Scene(Scene_Title::concrete_name)
+		: Scene(Scene_Title::concrete_class_name)
 	{
 	}
 	Scene_Title::~Scene_Title()
 	{
 	}
-	void Scene_Title::Init()
+	void Scene_Title::init()
 	{
 	}
 	void Scene_Title::OnEnter()
@@ -62,7 +62,7 @@ namespace ehw
 
 			cameraObj->AddComponent("Script_CameraMove");
 
-			RenderManager::GetInst().sceneRenderAgent().SetMainCamera(cameraComp);
+			RenderManager::get_inst().sceneRenderAgent().SetMainCamera(cameraComp);
 
 
 			AddGameObject(cameraObj, 0u);
@@ -118,9 +118,9 @@ namespace ehw
 			std::unique_ptr<GameObject> colA = std::make_unique<GameObject>("Collider A");
 			std::unique_ptr<GameObject> colB = std::make_unique<GameObject>("Collider B");
 
-			colA->AddComponent(strKey::component::Com_Collider2D_AABB);
+			colA->AddComponent("Com_Collider2D_AABB");
 			colA->transform()->set_local_position(float3(-50.f, 0.f, 0.f));
-			colB->AddComponent(strKey::component::Com_Collider2D_AABB);
+			colB->AddComponent("Com_Collider2D_AABB");
 			colB->transform()->set_local_position(float3(0.f, 50.f, 0.f));
 
 			AddGameObject(colA, 0u);
@@ -169,8 +169,8 @@ namespace ehw
 		}
 
 		{
-			auto model = ResourceManager<Model3D>::GetInst().load("Player_Default");
-			auto player = model->Instantiate();
+			auto model = ResourceManager<Model3D>::get_inst().load_from_file("Player_Default");
+			auto player = model->instantiate();
 
 			player[0]->AddScript<Script_Player>();
 
@@ -189,7 +189,7 @@ namespace ehw
 			//player->AddComponent<Script_Player>();
 
 
-			//std::unique_ptr<GameObject> modeling = meshdata->Instantiate(eLayer::Player);
+			//std::unique_ptr<GameObject> modeling = meshdata->instantiate(eLayer::Player);
 		}
 	}
 

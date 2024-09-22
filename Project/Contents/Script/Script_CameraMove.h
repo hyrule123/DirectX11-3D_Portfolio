@@ -18,7 +18,7 @@ namespace ehw
 		virtual ~Script_CameraMove();
 
 		virtual void Awake();
-		virtual void Update();
+		virtual void update();
 
 	private:
 		void Camera2DMove();

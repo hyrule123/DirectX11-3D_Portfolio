@@ -12,7 +12,7 @@ namespace ehw
         Script_Test2();
         virtual ~Script_Test2();
 
-        virtual void Update() override;
+        virtual void update() override;
     };
 }
 

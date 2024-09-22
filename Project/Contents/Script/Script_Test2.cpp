@@ -7,14 +7,14 @@
 namespace ehw
 {
 	Script_Test2::Script_Test2()
-		: Script(Script_Test2::concrete_name)
+		: Script(Script_Test2::concrete_class_name)
 	{
 	}
 
 	Script_Test2::~Script_Test2()
 	{
 	}
-	void Script_Test2::Update()
+	void Script_Test2::update()
 	{
 		if (InputManager::GetKeyDown(eKeyCode::I))
 		{

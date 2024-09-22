@@ -12,7 +12,7 @@ namespace ehw {
 
 	void ContentsInitializer::init()
 	{
-		SceneManager::GetInst().LoadScene("Scene_Title");
+		SceneManager::get_inst().LoadScene("Scene_Title");
 	}
 }
 

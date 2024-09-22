@@ -12,9 +12,9 @@ namespace ehw
         Script_Player();
         virtual ~Script_Player();
 
-        virtual void Init() override;
+        virtual void init() override;
         virtual void Awake() override;
-        virtual void Update() override;
+        virtual void update() override;
 
     private:
         void TestCallback();

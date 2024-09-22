@@ -11,7 +11,7 @@
 namespace ehw
 {
 	Script_CameraMove::Script_CameraMove()
-		: Script(Script_CameraMove::concrete_name)
+		: Script(Script_CameraMove::concrete_class_name)
 		, m_camera()
 		, mCamSpeed(100.f)
 	{
@@ -32,7 +32,7 @@ namespace ehw
 		m_camera = gameObject()->GetComponent<Com_Camera>();
 	}
 
-	void Script_CameraMove::Update()
+	void Script_CameraMove::update()
 	{
 		eProjectionType projType = m_camera->GetProjectionType();
 
@@ -68,36 +68,36 @@ namespace ehw
 
 		if (InputManager::GetKeyPress(eKeyCode::W))
 		{
-			vPos.y += TimeManager::GetInst().DeltaTime() * fSpeed;
+			vPos.y += TimeManager::get_inst().DeltaTime() * fSpeed;
 		}
 
 		if (InputManager::GetKeyPress(eKeyCode::S))
 		{
-			vPos.y -= TimeManager::GetInst().DeltaTime() * fSpeed;
+			vPos.y -= TimeManager::get_inst().DeltaTime() * fSpeed;
 		}
 
 		if (InputManager::GetKeyPress(eKeyCode::A))
 		{
-			vPos.x -= TimeManager::GetInst().DeltaTime() * fSpeed;
+			vPos.x -= TimeManager::get_inst().DeltaTime() * fSpeed;
 		}
 
 		if (InputManager::GetKeyPress(eKeyCode::D))
 		{
-			vPos.x += TimeManager::GetInst().DeltaTime() * fSpeed;
+			vPos.x += TimeManager::get_inst().DeltaTime() * fSpeed;
 		}
 
 
 		if (InputManager::GetKeyPress(eKeyCode::N_1))
 		{
 			float fScale = m_camera->GetScale();
-			fScale += TimeManager::GetInst().DeltaTime() * 1.f;
+			fScale += TimeManager::get_inst().DeltaTime() * 1.f;
 			m_camera->SetScale(fScale);
 		}
 
 		if (InputManager::GetKeyPress(eKeyCode::N_2))
 		{
 			float fScale = m_camera->GetScale();
-			fScale -= TimeManager::GetInst().DeltaTime() * 1.f;
+			fScale -= TimeManager::get_inst().DeltaTime() * 1.f;
 			m_camera->SetScale(fScale);
 		}
 
@@ -122,22 +122,22 @@ namespace ehw
 
 		if (InputManager::GetKeyPress(eKeyCode::W))
 		{
-			vPos += TimeManager::GetInst().DeltaTime() * vFront * fSpeed;
+			vPos += TimeManager::get_inst().DeltaTime() * vFront * fSpeed;
 		}
 
 		if (InputManager::GetKeyPress(eKeyCode::S))
 		{
-			vPos -= TimeManager::GetInst().DeltaTime() * vFront * fSpeed;
+			vPos -= TimeManager::get_inst().DeltaTime() * vFront * fSpeed;
 		}
 
 		if (InputManager::GetKeyPress(eKeyCode::A))
 		{
-			vPos -= TimeManager::GetInst().DeltaTime() * vRight * fSpeed;
+			vPos -= TimeManager::get_inst().DeltaTime() * vRight * fSpeed;
 		}
 
 		if (InputManager::GetKeyPress(eKeyCode::D))
 		{
-			vPos += TimeManager::GetInst().DeltaTime() * vRight * fSpeed;
+			vPos += TimeManager::get_inst().DeltaTime() * vRight * fSpeed;
 		}
 
 
@@ -145,8 +145,8 @@ namespace ehw
 		if (InputManager::GetKeyPress(eKeyCode::RBTN))
 		{
 			float2 vMouseDir = InputManager::GetMouseDir();
-			vRot.y += TimeManager::GetInst().DeltaTime() * vMouseDir.x;
-			vRot.x -= TimeManager::GetInst().DeltaTime() * vMouseDir.y;
+			vRot.y += TimeManager::get_inst().DeltaTime() * vMouseDir.x;
+			vRot.x -= TimeManager::get_inst().DeltaTime() * vMouseDir.y;
 		}
 
 		tf->set_local_position(vPos);

@@ -15,13 +15,13 @@
 namespace ehw
 {
 	Script_Player::Script_Player()
-		: Script(Script_Player::concrete_name)
+		: Script(Script_Player::concrete_class_name)
 	{
 	}
 	Script_Player::~Script_Player()
 	{
 	}
-	void Script_Player::Init()
+	void Script_Player::init()
 	{
 		gameObject()->SetName("Player");
 		//GetOwner()->GetComponent<Transform>()->set_local_rotation(Vector3(0.f, -100.f, 750.f));
@@ -40,7 +40,7 @@ namespace ehw
 		}
 	}
 
-	void Script_Player::Update()
+	void Script_Player::update()
 	{
 		if (InputManager::GetKeyDown(eKeyCode::P))
 		{
