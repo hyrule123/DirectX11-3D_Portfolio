@@ -169,7 +169,8 @@ namespace ehw
 		}
 
 		{
-			auto model = ResourceManager<Model3D>::get_inst().load_from_file("Player_Default");
+			
+			auto model = ResourceManager<Model3D>::get_inst().load("Player_Default");
 			auto player = model->instantiate();
 
 			player[0]->AddScript<Script_Player>();
