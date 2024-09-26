@@ -68,64 +68,64 @@ namespace ehw
 			AddGameObject(cameraObj, 0u);
 		}
 
+		//{
+		//	std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
+		//	//dirLight->AddComponent<Transform>();
+
+		//	Light_3D* light3d = dirLight->AddComponent<Light_3D>();
+		//	light3d->SetLightType(eLightType::Directional);
+		//	light3d->SetDiffuse(float4(0.3f, 0.3f, 0.3f, 1.f));
+		//	light3d->SetAmbient(float4(0.3f, 0.3f, 0.3f, 1.f));
+
+		//	AddGameObject(dirLight, 0u);
+		//}
+
 		{
-			//std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
-			////dirLight->AddComponent<Transform>();
-
-			//Light_3D* light3d = dirLight->AddComponent<Light_3D>();
-			//light3d->SetLightType(eLightType::Directional);
-			//light3d->SetDiffuse(float4(0.3f, 0.3f, 0.3f, 1.f));
-			//light3d->SetAmbient(float4(0.3f, 0.3f, 0.3f, 1.f));
-
-			//AddGameObject(dirLight, 0u);
-		}
-
-		{
-			std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
+			std::unique_ptr<GameObject> pointLight = std::make_unique<GameObject>();
 			
-			dirLight->SetName("Point1000");
+			pointLight->SetName("Point1000");
 
-			dirLight->GetComponent<Transform>()->set_world_position(float3(100.f, 500.f, 100.f));
+			pointLight->GetComponent<Transform>()->set_world_position(float3(100.f, 500.f, 100.f));
 
-			Light_3D* light3d = dirLight->AddComponent<Light_3D>();
+			Light_3D* light3d = pointLight->AddComponent<Light_3D>();
 			light3d->SetLightType(eLightType::Point);
-			light3d->SetRadius(700.f);
+			light3d->SetRadius(1000.f);
 			light3d->SetDiffuse(float4(0.7f, 0.7f, 0.7f, 1.f));
 			light3d->SetAmbient(float4(0.7f, 0.7f, 0.7f, 1.f));
 
-			AddGameObject(dirLight, 0);
+			AddGameObject(pointLight, 0);
 		}
 
-		{
-			std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
-			//dirLight->AddComponent<Transform>();
-			dirLight->SetName("Point500");
+		//{
+		//	std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
+		//	//dirLight->AddComponent<Transform>();
+		//	dirLight->SetName("Point500");
 
-			Light_3D* light3d = dirLight->AddComponent<Light_3D>();
-			light3d->SetLightType(eLightType::Point);
-			light3d->SetRadius(200.f);
+		//	Light_3D* light3d = dirLight->AddComponent<Light_3D>();
+		//	light3d->SetLightType(eLightType::Point);
+		//	light3d->SetRadius(200.f);
 
-			light3d->SetDiffuse(float4(0.7f, 0.7f, 0.7f, 1.f));
+		//	light3d->SetDiffuse(float4(0.7f, 0.7f, 0.7f, 1.f));
 
-			light3d->SetAmbient(float4(0.7f, 0.7f, 0.7f, 1.f));
+		//	light3d->SetAmbient(float4(0.7f, 0.7f, 0.7f, 1.f));
 
-			AddGameObject(dirLight, 0u);
-		}
+		//	AddGameObject(dirLight, 0u);
+		//}
 
-		{
-			GetCollisionSystem()->SetCollisionMask(0, 0, true);
-			GetCollisionSystem()->SetCollisionMask(0, 1, true);
-			std::unique_ptr<GameObject> colA = std::make_unique<GameObject>("Collider A");
-			std::unique_ptr<GameObject> colB = std::make_unique<GameObject>("Collider B");
+		//{
+		//	GetCollisionSystem()->SetCollisionMask(0, 0, true);
+		//	GetCollisionSystem()->SetCollisionMask(0, 1, true);
+		//	std::unique_ptr<GameObject> colA = std::make_unique<GameObject>("Collider A");
+		//	std::unique_ptr<GameObject> colB = std::make_unique<GameObject>("Collider B");
 
-			colA->AddComponent("Com_Collider2D_AABB");
-			colA->transform()->set_local_position(float3(-50.f, 0.f, 0.f));
-			colB->AddComponent("Com_Collider2D_AABB");
-			colB->transform()->set_local_position(float3(0.f, 50.f, 0.f));
+		//	colA->AddComponent("Com_Collider2D_AABB");
+		//	colA->transform()->set_local_position(float3(-50.f, 0.f, 0.f));
+		//	colB->AddComponent("Com_Collider2D_AABB");
+		//	colB->transform()->set_local_position(float3(0.f, 50.f, 0.f));
 
-			AddGameObject(colA, 0u);
-			AddGameObject(colB, 1u);
-		}
+		//	AddGameObject(colA, 0u);
+		//	AddGameObject(colB, 1u);
+		//}
 
 		{
 			GetCollisionSystem()->GetCollision3D()->EnableGravity(true, float3(0.f, -9.8f, 0.f));

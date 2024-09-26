@@ -28,26 +28,26 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -76,20 +76,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetExt>.lib</TargetExt>
-    <OutDir>$(SolutionDir)External\lib\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <TargetExt>.exe</TargetExt>
+    <OutDir>$(SolutionDir)Bin\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <TargetExt>.lib</TargetExt>
-    <OutDir>$(SolutionDir)External\lib\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <TargetExt>.exe</TargetExt>
+    <OutDir>$(SolutionDir)Bin\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <TargetExt>.lib</TargetExt>
-    <OutDir>$(SolutionDir)External\lib\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <TargetExt>.exe</TargetExt>
+    <OutDir>$(SolutionDir)Bin\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <TargetExt>.lib</TargetExt>
-    <OutDir>$(SolutionDir)External\lib\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <TargetExt>.exe</TargetExt>
+    <OutDir>$(SolutionDir)Bin\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -100,13 +100,17 @@
       <ForcedIncludeFiles>PCH_Contents.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
       <Command>cd $(SolutionDir)
 start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene Shader</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>cd $(SolutionDir)
+call Copy_DLL.bat $(Platform) $(Configuration)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -119,7 +123,7 @@ start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene 
       <ForcedIncludeFiles>PCH_Contents.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -128,6 +132,10 @@ start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene 
       <Command>cd $(SolutionDir)
 start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene Shader</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>cd $(SolutionDir)
+call Copy_DLL.bat $(Platform) $(Configuration)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -138,13 +146,17 @@ start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene 
       <ForcedIncludeFiles>PCH_Contents.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
       <Command>
       </Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>cd $(SolutionDir)
+call Copy_DLL.bat $(Platform) $(Configuration)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -157,7 +169,7 @@ start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene 
       <ForcedIncludeFiles>PCH_Contents.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -166,19 +178,26 @@ start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene 
       <Command>cd $(SolutionDir)
 start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene Shader</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>cd $(SolutionDir)
+call Copy_DLL.bat $(Platform) $(Configuration)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ContentsInitializer.h" />
     <ClInclude Include="define_Contents.h" />
     <ClInclude Include="PCH_Contents.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Scene\Scene_Title.h" />
     <ClInclude Include="Script\Script_CameraMove.h" />
     <ClInclude Include="Script\Script_Player.h" />
     <ClInclude Include="Script\Script_Test.h" />
     <ClInclude Include="Script\Script_Test2.h" />
+    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsInitializer.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="PCH_Contents.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -190,6 +209,12 @@ start CodeGenerator_$(Platform)_$(Configuration).exe UserComponent Script Scene 
     <ClCompile Include="Script\Script_Player.cpp" />
     <ClCompile Include="Script\Script_Test.cpp" />
     <ClCompile Include="Script\Script_Test2.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Contents.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="MHW.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
