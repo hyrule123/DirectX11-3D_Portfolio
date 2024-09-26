@@ -40,8 +40,8 @@ BOOL APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     ehw::editor::EditorManager::OpenEditorAsDefault(true);
 #endif
 
-    EngineMain mainWindow(Desc);
-    return mainWindow.Run();
+    EngineMain Engine(Desc);
+    return Engine.Run();
 }
 
 inline void DebugCheck(long _block)

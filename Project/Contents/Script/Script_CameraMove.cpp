@@ -61,40 +61,40 @@ namespace ehw
 		float3 vPos = tf->get_local_position();
 
 		float fSpeed = mCamSpeed;
-		if (InputManager::GetKeyPress(eKeyCode::LSHIFT))
+		if (InputManager::get_inst().GetKeyPress(eKeyCode::LSHIFT))
 		{
 			fSpeed *= 5.f;
 		}
 
-		if (InputManager::GetKeyPress(eKeyCode::W))
+		if (InputManager::get_inst().GetKeyPress(eKeyCode::W))
 		{
 			vPos.y += TimeManager::get_inst().DeltaTime() * fSpeed;
 		}
 
-		if (InputManager::GetKeyPress(eKeyCode::S))
+		if (InputManager::get_inst().GetKeyPress(eKeyCode::S))
 		{
 			vPos.y -= TimeManager::get_inst().DeltaTime() * fSpeed;
 		}
 
-		if (InputManager::GetKeyPress(eKeyCode::A))
+		if (InputManager::get_inst().GetKeyPress(eKeyCode::A))
 		{
 			vPos.x -= TimeManager::get_inst().DeltaTime() * fSpeed;
 		}
 
-		if (InputManager::GetKeyPress(eKeyCode::D))
+		if (InputManager::get_inst().GetKeyPress(eKeyCode::D))
 		{
 			vPos.x += TimeManager::get_inst().DeltaTime() * fSpeed;
 		}
 
 
-		if (InputManager::GetKeyPress(eKeyCode::N_1))
+		if (InputManager::get_inst().GetKeyPress(eKeyCode::N_1))
 		{
 			float fScale = m_camera->GetScale();
 			fScale += TimeManager::get_inst().DeltaTime() * 1.f;
 			m_camera->SetScale(fScale);
 		}
 
-		if (InputManager::GetKeyPress(eKeyCode::N_2))
+		if (InputManager::get_inst().GetKeyPress(eKeyCode::N_2))
 		{
 			float fScale = m_camera->GetScale();
 			fScale -= TimeManager::get_inst().DeltaTime() * 1.f;
@@ -117,34 +117,34 @@ namespace ehw
 
 		float fSpeed = mCamSpeed;
 
-		if (InputManager::GetKeyPress(eKeyCode::LSHIFT))
+		if (InputManager::get_inst().GetKeyPress(eKeyCode::LSHIFT))
 			fSpeed *= 5.f;
 
-		if (InputManager::GetKeyPress(eKeyCode::W))
+		if (InputManager::get_inst().GetKeyPress(eKeyCode::W))
 		{
 			vPos += TimeManager::get_inst().DeltaTime() * vFront * fSpeed;
 		}
 
-		if (InputManager::GetKeyPress(eKeyCode::S))
+		if (InputManager::get_inst().GetKeyPress(eKeyCode::S))
 		{
 			vPos -= TimeManager::get_inst().DeltaTime() * vFront * fSpeed;
 		}
 
-		if (InputManager::GetKeyPress(eKeyCode::A))
+		if (InputManager::get_inst().GetKeyPress(eKeyCode::A))
 		{
 			vPos -= TimeManager::get_inst().DeltaTime() * vRight * fSpeed;
 		}
 
-		if (InputManager::GetKeyPress(eKeyCode::D))
+		if (InputManager::get_inst().GetKeyPress(eKeyCode::D))
 		{
 			vPos += TimeManager::get_inst().DeltaTime() * vRight * fSpeed;
 		}
 
 
 
-		if (InputManager::GetKeyPress(eKeyCode::RBTN))
+		if (InputManager::get_inst().GetKeyPress(eKeyCode::RBTN))
 		{
-			float2 vMouseDir = InputManager::GetMouseDir();
+			float2 vMouseDir = InputManager::get_inst().GetMouseDir();
 			vRot.y += TimeManager::get_inst().DeltaTime() * vMouseDir.x;
 			vRot.x -= TimeManager::get_inst().DeltaTime() * vMouseDir.y;
 		}

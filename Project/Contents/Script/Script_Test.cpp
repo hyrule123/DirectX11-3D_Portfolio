@@ -17,7 +17,7 @@ namespace ehw
 	}
 	void Script_Test::update()
 	{
-		if (InputManager::GetKeyDown(eKeyCode::X))
+		if (InputManager::get_inst().GetKeyDown(eKeyCode::X))
 		{
 			gameObject()->Destroy();
 		}

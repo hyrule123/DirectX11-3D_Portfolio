@@ -29,6 +29,11 @@
 #include <Engine/Resource/Prefab.h>
 #include <Engine/Resource/Model3D/Model3D.h>
 #include <Engine/Resource/Texture.h>
+#include <Engine/Resource/Mesh/Mesh.h>
+#include <Engine/Resource/Material/Material.h>
+#include <Engine/Resource/Material/Default3DMtrl.h>
+
+#include <Engine/Resource/define_Resource.h>
 
 #include "Contents/Script/Script_Player.h"
 #include "Contents/Script/Script_CameraMove.h"
@@ -68,49 +73,50 @@ namespace ehw
 			AddGameObject(cameraObj, 0u);
 		}
 
-		//{
-		//	std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
-		//	//dirLight->AddComponent<Transform>();
+		{
+			std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
+			//dirLight->AddComponent<Transform>();
 
-		//	Light_3D* light3d = dirLight->AddComponent<Light_3D>();
-		//	light3d->SetLightType(eLightType::Directional);
-		//	light3d->SetDiffuse(float4(0.3f, 0.3f, 0.3f, 1.f));
-		//	light3d->SetAmbient(float4(0.3f, 0.3f, 0.3f, 1.f));
+			Light_3D* light3d = dirLight->AddComponent<Light_3D>();
+			light3d->SetLightType(eLightType::Directional);
+			light3d->SetDiffuse(float4(0.3f, 0.3f, 0.3f, 1.f));
+			light3d->SetAmbient(float4(0.3f, 0.3f, 0.3f, 1.f));
 
-		//	AddGameObject(dirLight, 0u);
-		//}
+			AddGameObject(dirLight, 0u);
+		}
 
 		{
 			std::unique_ptr<GameObject> pointLight = std::make_unique<GameObject>();
 			
 			pointLight->SetName("Point1000");
 
-			pointLight->GetComponent<Transform>()->set_world_position(float3(100.f, 500.f, 100.f));
+			pointLight->GetComponent<Transform>()->set_world_position(float3(0.f, 200.f, 0.f));
 
 			Light_3D* light3d = pointLight->AddComponent<Light_3D>();
 			light3d->SetLightType(eLightType::Point);
-			light3d->SetRadius(1000.f);
-			light3d->SetDiffuse(float4(0.7f, 0.7f, 0.7f, 1.f));
-			light3d->SetAmbient(float4(0.7f, 0.7f, 0.7f, 1.f));
+			light3d->SetRadius(500.f);
+			light3d->SetDiffuse(float4(0.3f, 0.f, 0.f, 1.f));
+			light3d->SetAmbient(float4(0.3f, 0.f, 0.f, 1.f));
 
 			AddGameObject(pointLight, 0);
 		}
 
-		//{
-		//	std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
-		//	//dirLight->AddComponent<Transform>();
-		//	dirLight->SetName("Point500");
+		{
+			std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
+			//dirLight->AddComponent<Transform>();
+			dirLight->SetName("Point500");
+			dirLight->GetComponent<Transform>()->set_world_position(float3(100.f, 100.f, 100.f));
 
-		//	Light_3D* light3d = dirLight->AddComponent<Light_3D>();
-		//	light3d->SetLightType(eLightType::Point);
-		//	light3d->SetRadius(200.f);
+			Light_3D* light3d = dirLight->AddComponent<Light_3D>();
+			light3d->SetLightType(eLightType::Point);
+			light3d->SetRadius(500.f);
 
-		//	light3d->SetDiffuse(float4(0.7f, 0.7f, 0.7f, 1.f));
+			light3d->SetDiffuse(float4(0.f, 0.f, 0.3f, 1.f));
 
-		//	light3d->SetAmbient(float4(0.7f, 0.7f, 0.7f, 1.f));
+			light3d->SetAmbient(float4(0.f, 0.f, 0.3f, 1.f));
 
-		//	AddGameObject(dirLight, 0u);
-		//}
+			AddGameObject(dirLight, 0u);
+		}
 
 		//{
 		//	GetCollisionSystem()->SetCollisionMask(0, 0, true);
@@ -170,18 +176,40 @@ namespace ehw
 
 		{
 			
-			auto model = ResourceManager<Model3D>::get_inst().load("Player_Default");
-			auto player = model->instantiate();
+			//auto model = ResourceManager<Model3D>::get_inst().load("Player_Default");
+			//auto player = model->instantiate();
 
-			player[0]->AddScript<Script_Player>();
+			//player[0]->AddScript<Script_Player>();
 
-			for (size_t i = 0; i < 10; ++i)
-			{
-				player[i]->AddComponent("Script_Test");
-			}
-			player[11]->AddComponent("Script_Test2");
+			//for (size_t i = 0; i < 10; ++i)
+			//{
+			//	player[i]->AddComponent("Script_Test");
+			//}
+			//player[11]->AddComponent("Script_Test2");
 
-			AddGameObjects(player, 0);
+			//AddGameObjects(player, 0);
+		}
+
+		{
+			std::unique_ptr<GameObject> sphere = std::make_unique<GameObject>();
+			auto mesh_renderer = sphere->AddComponent<Com_Renderer_Mesh>();
+			auto mesh = ResourceManager<Mesh>::get_inst().load(name::defaultRes::mesh::SphereMesh);
+			
+			auto mtrl = std::make_shared<Default3DMtrl>();
+			mtrl->set_deffered3D_shader();
+
+			auto albedo_tex = ResourceManager<Texture>::get_inst().load("Cube/Brick.jpg");
+			auto normal_tex = ResourceManager<Texture>::get_inst().load("Cube/Brick_N.jpg");
+
+			mtrl->set_texture(eTextureSlot::Albedo, albedo_tex);
+			mtrl->set_texture(eTextureSlot::Normal, normal_tex);
+
+			mesh_renderer->set_mesh(mesh);
+			mesh_renderer->set_material(mtrl);
+
+			sphere->GetComponent<Transform>()->set_local_scale(float3(500.f, 500.f, 500.f));
+			
+			AddGameObject(sphere, 0);
 		}
 
 

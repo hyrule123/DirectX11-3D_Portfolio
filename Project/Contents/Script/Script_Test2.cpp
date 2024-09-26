@@ -16,7 +16,7 @@ namespace ehw
 	}
 	void Script_Test2::update()
 	{
-		if (InputManager::GetKeyDown(eKeyCode::I))
+		if (InputManager::get_inst().GetKeyDown(eKeyCode::I))
 		{
 			const auto& childs = gameObject()->transform()->get_childs();
 

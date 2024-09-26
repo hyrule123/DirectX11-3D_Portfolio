@@ -42,7 +42,7 @@ namespace ehw
 
 	void Script_Player::update()
 	{
-		if (InputManager::GetKeyDown(eKeyCode::P))
+		if (InputManager::get_inst().GetKeyDown(eKeyCode::P))
 		{
 			Com_Animator3D* animator = gameObject()->GetComponent<Com_Animator3D>();
 			if (animator)
@@ -51,7 +51,7 @@ namespace ehw
 			}
 		}
 
-		if (InputManager::GetKeyDown(eKeyCode::E))
+		if (InputManager::get_inst().GetKeyDown(eKeyCode::E))
 		{
 		}
 	}
