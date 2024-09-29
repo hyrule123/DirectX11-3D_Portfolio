@@ -54,40 +54,50 @@ namespace ehw
 	}
 	void Scene_Title::OnEnter()
 	{
-		{
-			// Main Com_Camera Game Object
-			std::unique_ptr<GameObject> cameraObj = std::make_unique<GameObject>();
-			cameraObj->SetName("MainCamera");
+		create_camera();
+		create_lights();
+		//create_test_physics_colliders();
+		create_test_3D_modeling();
+		//create_test_sphere_mesh();
+	}
 
-			Transform* tr = cameraObj->transform();
-			tr->set_local_position(float3(0.0f, 0.0f, -500.0f));
+	void Scene_Title::create_camera()
+	{
+		// Main Com_Camera Game Object
+		std::unique_ptr<GameObject> cameraObj = std::make_unique<GameObject>();
+		cameraObj->SetName("MainCamera");
 
-			Com_Camera* cameraComp = cameraObj->AddComponent<Com_Camera>();
-			cameraComp->SetProjectionType(eProjectionType::Perspective);
+		Transform* tr = cameraObj->transform();
+		tr->set_local_position(float3(0.0f, 0.0f, -500.0f));
 
-			cameraObj->AddComponent("Script_CameraMove");
+		Com_Camera* cameraComp = cameraObj->AddComponent<Com_Camera>();
+		cameraComp->SetProjectionType(eProjectionType::Perspective);
 
-			RenderManager::get_inst().sceneRenderAgent().SetMainCamera(cameraComp);
+		cameraObj->AddComponent("Script_CameraMove");
+
+		RenderManager::get_inst().sceneRenderAgent().SetMainCamera(cameraComp);
 
 
-			AddGameObject(cameraObj, 0u);
-		}
+		AddGameObject(cameraObj, 0u);
+	}
 
+	void Scene_Title::create_lights()
+	{
 		{
 			std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
-			//dirLight->AddComponent<Transform>();
 
 			Light_3D* light3d = dirLight->AddComponent<Light_3D>();
 			light3d->SetLightType(eLightType::Directional);
-			light3d->SetDiffuse(float4(0.3f, 0.3f, 0.3f, 1.f));
-			light3d->SetAmbient(float4(0.3f, 0.3f, 0.3f, 1.f));
+			light3d->SetDiffuse(float4(0.4f, 0.4f, 0.4f, 1.f));
+			light3d->SetAmbient(float4(0.4f, 0.4f, 0.4f, 1.f));
+			light3d->SetSpecular(float4(0.4f, 0.4f, 0.4f, 1.f));
 
 			AddGameObject(dirLight, 0u);
 		}
 
 		{
 			std::unique_ptr<GameObject> pointLight = std::make_unique<GameObject>();
-			
+
 			pointLight->SetName("Point1000");
 
 			pointLight->GetComponent<Transform>()->set_world_position(float3(0.f, 200.f, 0.f));
@@ -95,43 +105,91 @@ namespace ehw
 			Light_3D* light3d = pointLight->AddComponent<Light_3D>();
 			light3d->SetLightType(eLightType::Point);
 			light3d->SetRadius(500.f);
-			light3d->SetDiffuse(float4(0.3f, 0.f, 0.f, 1.f));
-			light3d->SetAmbient(float4(0.3f, 0.f, 0.f, 1.f));
+			light3d->SetDiffuse(float4(0.8f, 0.8f, 0.8f, 1.f));
+			light3d->SetSpecular(float4(0.8f, 0.8f, 0.8f, 1.f));
+			//light3d->SetAmbient(float4(0.7f, 0.f, 0.f, 1.f));
 
 			AddGameObject(pointLight, 0);
 		}
 
 		{
-			std::unique_ptr<GameObject> dirLight = std::make_unique<GameObject>();
+			std::unique_ptr<GameObject> point_light = std::make_unique<GameObject>();
 			//dirLight->AddComponent<Transform>();
-			dirLight->SetName("Point500");
-			dirLight->GetComponent<Transform>()->set_world_position(float3(100.f, 100.f, 100.f));
+			point_light->SetName("Point500");
+			point_light->GetComponent<Transform>()->set_world_position(float3(100.f, 100.f, 100.f));
 
-			Light_3D* light3d = dirLight->AddComponent<Light_3D>();
+			Light_3D* light3d = point_light->AddComponent<Light_3D>();
 			light3d->SetLightType(eLightType::Point);
 			light3d->SetRadius(500.f);
 
-			light3d->SetDiffuse(float4(0.f, 0.f, 0.3f, 1.f));
+			light3d->SetDiffuse(float4(0.f, 0.f, 0.5f, 1.f));
+			light3d->SetSpecular(float4(0.5f, 0.f, 0.f, 1.f));
+			//light3d->SetAmbient(float4(0.f, 0.f, 0.7f, 1.f));
 
-			light3d->SetAmbient(float4(0.f, 0.f, 0.3f, 1.f));
-
-			AddGameObject(dirLight, 0u);
+			AddGameObject(point_light, 0u);
 		}
+	}
 
-		//{
-		//	GetCollisionSystem()->SetCollisionMask(0, 0, true);
-		//	GetCollisionSystem()->SetCollisionMask(0, 1, true);
-		//	std::unique_ptr<GameObject> colA = std::make_unique<GameObject>("Collider A");
-		//	std::unique_ptr<GameObject> colB = std::make_unique<GameObject>("Collider B");
+	void Scene_Title::create_test_3D_modeling()
+	{
+		auto model = ResourceManager<Model3D>::get_inst().load("Player_Default");
+		auto player = model->instantiate();
 
-		//	colA->AddComponent("Com_Collider2D_AABB");
-		//	colA->transform()->set_local_position(float3(-50.f, 0.f, 0.f));
-		//	colB->AddComponent("Com_Collider2D_AABB");
-		//	colB->transform()->set_local_position(float3(0.f, 50.f, 0.f));
+		player[0]->AddScript<Script_Player>();
 
-		//	AddGameObject(colA, 0u);
-		//	AddGameObject(colB, 1u);
-		//}
+		for (size_t i = 0; i < 10; ++i)
+		{
+			player[i]->AddComponent("Script_Test");
+		}
+		player[11]->AddComponent("Script_Test2");
+
+		AddGameObjects(player, 0);
+	}
+
+	void Scene_Title::create_test_sphere_mesh()
+	{
+		std::unique_ptr<GameObject> sphere = std::make_unique<GameObject>();
+		sphere->SetName("Player");
+		auto mesh_renderer = sphere->AddComponent<Com_Renderer_Mesh>();
+		auto mesh = ResourceManager<Mesh>::get_inst().load(name::defaultRes::mesh::SphereMesh);
+
+		auto mtrl = std::make_shared<Default3DMtrl>();
+		mtrl->set_deffered3D_shader();
+
+		auto albedo_tex = ResourceManager<Texture>::get_inst().load("Cube/Brick.jpg");
+		auto normal_tex = ResourceManager<Texture>::get_inst().load("Cube/Brick_N.jpg");
+
+		mtrl->set_texture(eTextureSlot::diffuse_texture, albedo_tex);
+		mtrl->set_texture(eTextureSlot::normal_texture, normal_tex);
+
+		mesh_renderer->set_mesh(mesh);
+		mesh_renderer->set_material(mtrl);
+
+		//mtrl->set_diffuse(float4(0.4f, 0.4f, 0.4f, 1.f));
+		//mtrl->set_specular(float4(0.4f, 0.4f, 0.4f, 1.f));
+
+		sphere->GetComponent<Transform>()->set_local_scale(float3(150.f, 150.f, 150.f));
+
+		AddGameObject(sphere, 0);
+	}
+
+	void Scene_Title::create_test_physics_colliders()
+	{
+		//Physics Collider 3D
+		{
+			GetCollisionSystem()->SetCollisionMask(0, 0, true);
+			GetCollisionSystem()->SetCollisionMask(0, 1, true);
+			std::unique_ptr<GameObject> colA = std::make_unique<GameObject>("Collider A");
+			std::unique_ptr<GameObject> colB = std::make_unique<GameObject>("Collider B");
+
+			colA->AddComponent("Com_Collider2D_AABB");
+			colA->transform()->set_local_position(float3(-50.f, 0.f, 0.f));
+			colB->AddComponent("Com_Collider2D_AABB");
+			colB->transform()->set_local_position(float3(0.f, 50.f, 0.f));
+
+			AddGameObject(colA, 0u);
+			AddGameObject(colB, 1u);
+		}
 
 		{
 			GetCollisionSystem()->GetCollision3D()->EnableGravity(true, float3(0.f, -9.8f, 0.f));
@@ -172,53 +230,6 @@ namespace ehw
 
 			AddGameObject(col3dA, 0u);
 			AddGameObject(col3dB, 1u);
-		}
-
-		{
-			
-			//auto model = ResourceManager<Model3D>::get_inst().load("Player_Default");
-			//auto player = model->instantiate();
-
-			//player[0]->AddScript<Script_Player>();
-
-			//for (size_t i = 0; i < 10; ++i)
-			//{
-			//	player[i]->AddComponent("Script_Test");
-			//}
-			//player[11]->AddComponent("Script_Test2");
-
-			//AddGameObjects(player, 0);
-		}
-
-		{
-			std::unique_ptr<GameObject> sphere = std::make_unique<GameObject>();
-			auto mesh_renderer = sphere->AddComponent<Com_Renderer_Mesh>();
-			auto mesh = ResourceManager<Mesh>::get_inst().load(name::defaultRes::mesh::SphereMesh);
-			
-			auto mtrl = std::make_shared<Default3DMtrl>();
-			mtrl->set_deffered3D_shader();
-
-			auto albedo_tex = ResourceManager<Texture>::get_inst().load("Cube/Brick.jpg");
-			auto normal_tex = ResourceManager<Texture>::get_inst().load("Cube/Brick_N.jpg");
-
-			mtrl->set_texture(eTextureSlot::Albedo, albedo_tex);
-			mtrl->set_texture(eTextureSlot::Normal, normal_tex);
-
-			mesh_renderer->set_mesh(mesh);
-			mesh_renderer->set_material(mtrl);
-
-			sphere->GetComponent<Transform>()->set_local_scale(float3(500.f, 500.f, 500.f));
-			
-			AddGameObject(sphere, 0);
-		}
-
-
-		{
-			//std::unique_ptr<GameObject> player = NewGameObject(eLayer::Player);
-			//player->AddComponent<Script_Player>();
-
-
-			//std::unique_ptr<GameObject> modeling = meshdata->instantiate(eLayer::Player);
 		}
 	}
 
