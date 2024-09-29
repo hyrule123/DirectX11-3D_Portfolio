@@ -7,6 +7,7 @@ namespace ehw
         public Script
     {
         CLASS_NAME(Script_Player);
+        REGISTER_INSTANCE_DEFAULT(Script_Player);
         
     public:
         Script_Player();
