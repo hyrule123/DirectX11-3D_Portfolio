@@ -3,6 +3,7 @@
 #include <Engine/Manager/ResourceManager.h>
 #include <Engine/Manager/RenderManager.h>
 #include <Engine/Manager/InputManager.h>
+#include <Engine/Manager/TimeManager.h>
 
 #include <Engine/Game/GameObject.h>
 #include <Engine/Game/Collision/CollisionSystem.h>
@@ -40,6 +41,8 @@
 
 #include <iostream>
 
+
+
 namespace ehw
 {
 	Scene_Title::Scene_Title()
@@ -57,8 +60,22 @@ namespace ehw
 		create_camera();
 		create_lights();
 		//create_test_physics_colliders();
-		create_test_3D_modeling();
+		//create_test_3D_modeling("model 1", float3(-100.f, 0.f, 0.f));
 		//create_test_sphere_mesh();
+	}
+
+	void Scene_Title::update()
+	{
+		if (m_wait > 0.f) {
+			m_wait -= TimeManager::get_inst().DeltaTime();
+
+			if (m_wait < 0.f) {
+				GameObject* obj = create_test_3D_modeling("model 2", float3(100.f, 0.f, 0.f));
+
+				auto animator = obj->GetComponent<Com_Animator3D>();
+				animator->Play("Evade");
+			}
+		}
 	}
 
 	void Scene_Title::create_camera()
@@ -130,12 +147,17 @@ namespace ehw
 		}
 	}
 
-	void Scene_Title::create_test_3D_modeling()
+	GameObject* Scene_Title::create_test_3D_modeling(const std::string_view _name, const float3& _where)
 	{
 		auto model = ResourceManager<Model3D>::get_inst().load("Player_Default");
 		auto player = model->instantiate();
 
+		GameObject* ret = player[0].get();
+		
+		player[0]->GetComponent<Transform>()->set_world_position(_where);
+
 		player[0]->AddScript<Script_Player>();
+		player[0]->SetName(_name);
 
 		for (size_t i = 0; i < 10; ++i)
 		{
@@ -144,6 +166,8 @@ namespace ehw
 		player[11]->AddComponent("Script_Test2");
 
 		AddGameObjects(player, 0);
+
+		return ret;
 	}
 
 	void Scene_Title::create_test_sphere_mesh()

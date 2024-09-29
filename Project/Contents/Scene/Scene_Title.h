@@ -14,12 +14,16 @@ namespace ehw
 
 		void init() final;
 		void OnEnter() final;
+		void update() final;
 
 	private:
 		void create_camera();
 		void create_lights();
 		void create_test_physics_colliders();
-		void create_test_3D_modeling();
+		GameObject* create_test_3D_modeling(const std::string_view _name, const float3& _where);
 		void create_test_sphere_mesh();
+
+	private:
+		float m_wait = 1.f;
 	};
 }
