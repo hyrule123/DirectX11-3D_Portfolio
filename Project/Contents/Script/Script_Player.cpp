@@ -26,7 +26,7 @@ namespace ehw
 		gameObject()->SetName("Player");
 		//GetOwner()->GetComponent<Transform>()->set_local_rotation(Vector3(0.f, -100.f, 750.f));
 		Com_Animator3D* animator = gameObject()->GetComponent<Com_Animator3D>();
-		animator->Play("Take 001");
+		//animator->Play("Take 001");
 		
 		//animator->AddEvent("Evade", 0, std::bind(&Script_Player::TestCallback, this));
 	}

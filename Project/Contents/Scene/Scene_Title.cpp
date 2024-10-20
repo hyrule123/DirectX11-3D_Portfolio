@@ -60,22 +60,13 @@ namespace ehw
 		create_camera();
 		create_lights();
 		//create_test_physics_colliders();
-		//create_test_3D_modeling("model 1", float3(-100.f, 0.f, 0.f));
+		create_test_3D_modeling("model 1", float3(-100.f, 0.f, 0.f));
 		//create_test_sphere_mesh();
 	}
 
 	void Scene_Title::update()
 	{
-		if (m_wait > 0.f) {
-			m_wait -= TimeManager::get_inst().DeltaTime();
-
-			if (m_wait < 0.f) {
-				GameObject* obj = create_test_3D_modeling("model 2", float3(100.f, 0.f, 0.f));
-
-				auto animator = obj->GetComponent<Com_Animator3D>();
-				animator->Play("Evade");
-			}
-		}
+		//create_delayed_3D_modeling();
 	}
 
 	void Scene_Title::create_camera()
@@ -156,7 +147,9 @@ namespace ehw
 		
 		player[0]->GetComponent<Transform>()->set_world_position(_where);
 
-		player[0]->AddScript<Script_Player>();
+		auto animator = player[0]->GetComponent<Com_Animator3D>();
+		animator->Play("Evade");
+		//player[0]->AddScript<Script_Player>();
 		player[0]->SetName(_name);
 
 		for (size_t i = 0; i < 10; ++i)
@@ -195,6 +188,20 @@ namespace ehw
 		sphere->GetComponent<Transform>()->set_local_scale(float3(150.f, 150.f, 150.f));
 
 		AddGameObject(sphere, 0);
+	}
+
+	void Scene_Title::create_delayed_3D_modeling()
+	{
+		if (m_wait > 0.f) {
+			m_wait -= TimeManager::get_inst().DeltaTime();
+
+			if (m_wait < 0.f) {
+				GameObject* obj = create_test_3D_modeling("model 2", float3(100.f, 0.f, 0.f));
+
+				auto animator = obj->GetComponent<Com_Animator3D>();
+				animator->Play("Idle");
+			}
+		}
 	}
 
 	void Scene_Title::create_test_physics_colliders()
